@@ -1,5 +1,53 @@
 \section{Ziel}
-\label{sec:Ziel}
+\label{sec:ziel}
+In diesem Versuch soll die Streuung von $\alpha$-Strahlung an Folien aus Gold, Aluminium und Bismut untersucht werden.
+Es sollen die Aktivität der verwendeten Probe, die verwendete Foliendicke und der differentielle Wirkungsquerschnitt bestimmt werden. Desweiteren soll die Z-Abhängigkeit sowie Mehrfachstreuung untersucht werden.
 
 \section{Theorie}
 \label{sec:theorie}
+\subsection{\texorpdfstring{$\alpha$}{α}-Zerfall}
+Ein $\alpha$-Zerfall sieht im Allgemeinen wie folgt aus
+\begin{equation}
+  \isotope [A][Z]{X} \rightarrow \isotope[A-4][Z-2]{Y}+\isotope[4][2]{He} +\Delta E.
+\end{equation}
+Ein Nuklid X zerfällt in ein Tochternuklid Y und ein $\alpha$-Teilchen, welches aus einen Heliumkern besteht. Aufgrund des Massendefekts wird bei dem Zerfall zusätzlich eine Energie $\Delta E$ frei, wodurch das $\alpha$-Teilchen kinetische Energie erhält. Die Energie kann auch in Form eines angeregten Zustands des Tochternuklids vorliegen. Der Übergang zum Grundzustand erfolgt durch die Emission von $\gamma$-Strahlung. Für die in diesem Experiment verwendete Probe gilt entsprechend
+\begin{equation}
+  \isotope [241]{Am} \rightarrow \isotope [237]{Np}^* + \Delta E.
+\end{equation}
+Americium zerfällt in Isotope von Neptunium. Das zugehörige Zerfallsschema ist in Abbildung \ref{fig:zerfall} dargestellt.
+
+Im Atomkern wirken sowohl die starke als auch die elektrostatische Wechselwirkung. Durch kurzreichweitige starke Wechselwirkung wirken anziehende Kräfte im Atomkern. Durch die schwähere langreichweitige elektrostatische Wechselwirkung wiederum treten abstoßende Kräfte zwischen gleichen Ladungen auf. Daher liegt der sogenannte Coulombwall vor, den das $\alpha$-Teilchen zu Verlassen des Kerns überwinden muss. Die Energie, die dafür benötigt wird, ist größer als die, die dem $\alpha$-Teilchen zur Verfügung steht. Somit liegt bei klassischer Betrachtung eine stabile Bindung vor. Der in der Quantenmechanik beschriebene Tunneleffekt besagt jedoch, dass Teilchen mit einer gewissen Wahrscheinlichkeit einen klassisch verbotenen Bereich durchqueren kann. Somit kann ein $\alpha$-Teilchen die Potentialbarriere trotz zu geringer kinetischer Energie überwinden.
+
+\subsection{Wechselwirkung mit Materie}
+Die Reichweite von $\alpha$-Strahlung in Luft beträgt ungefähr \SI{0.1}{\meter} (bei Normaldruck). Sie ist proportional zu $\frac{1}{p}$ mit $p$ als Druck. In Abbildung \ref{fig:luft} ist der Zusammenhang von Reichweite und Druck für den hier verwendeten Strahler graphisch dargestellt.
+
+\begin{figure}
+	\centering
+  \includegraphics[width=0.9\textwidth] {build/plot1.pdf}
+	\caption{Reichweite der $\alpha$-Teilchen in Luft in Abhängigkeit vom Druck $p$.}
+	\label{fig:luft}
+\end{figure}
+
+Trifft ein $\alpha$-Teilchen auf Materie, können verschiedene Wechselwirkungen auftreten. Davon sollen die Wechselwirkung mit Hüllenelektronen sowie Wechselwirkung mit dem Kern im Folgenden erläutert werden.
+\subsubsection{Bethe-Bloch-Gleichung}
+Die Bethe-Bloch-Gleichung beschreibt den mittleren Energieverlust pro Strecke schwerer geladener Teilchen in Materie.
+\begin{equation}
+  \label{eqn:bethe}
+   -\frac{\mathrm{d}E}{\mathrm{d}x}=-\frac{4\pi\,e^4\,z^2\,N\,Z}{m_0\, v^2(4\pi\,\epsilon_0)^2} \ln \frac{2m_0\,v^2}{I}
+\end{equation}
+Dabei ist $E$ die Energie, $x$ die Strecke, $z$ die Ladungszahl des Teilchens, $N$ die Anzahl der Atome pro \SI{}{\cubic\centi\meter}, $Z$ die Kernladungszahl, $m_0$ die Ruhemasse des Elektrons, $v$ die Geschwindigkeit des Teilchens und $I$ die mittlere Ionisationsenergie. Die Ionisationsenergie kann mit folgender Formel berechnet werden
+\begin{equation}
+I= \SI{10}{\electronvolt}\cdot Z.
+\end{equation}
+Bei der Wechselwirkung mit einem Hüllenelektron findet ein inelastischer Stoß statt. Somit gibt das geladene Teilchen (hier $\alpha$-Teilchen) Energie an dieses Elektron ab. Eine Richtungsänderung findet nicht statt.
+Der Energieverlust bezieht nur Verluste durch Ionisation mit ein. Diese Gleichung gilt nicht für Elektronen, da diese von den Hüllenelektronen des Streumaterials nicht unterscheidbar sind. Sowohl relativistische als auch quantenmechanische Effekte werden berücksichtigt.
+
+\subsubsection{Rutherfordsche Streuformel}
+Für die elastische Streuung am Kern gilt die Rutherfordsche Streuformel.
+\begin{equation}
+  \label{eqn:rutherford}
+\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}(\theta)=\frac{1}{(4\pi\,\epsilon_0)^2}\left(\frac{z\,Z\,e^2}{4E_\mathrm{\alpha}}\right)^2 \frac{1}{\sin^4\left(\frac{\theta}{2}\right)}
+\end{equation}
+$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}$ ist der differentiele Wirkungsquerschnitt, wobei $\Omega$ dem Raumwinkel entspricht. $\theta$ ist der Streuwinkel und $E_{\alpha}$ die mittlere kinetische Energie des $\alpha$-Teilchens. Da elastische Streuung vorliegt, findet wird kaum Energie übertragen und die Flugrichtung des Teilchens geändert.
+In dieser Formel wird der Einfluss von Mehrfachstreeung nicht berücksichtigt. Außerdem gilt sie nicht für quantenmechanische und relativistische Effekte. Für hohe Energien wird die
+Wechselwirkung mit dem Kern durch die sogenannte Mott-Streeung beschrieben, welche den Formfaktor sowie quantenmechanische und relativistische Effekte beinhaltet.
