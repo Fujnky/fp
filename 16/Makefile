@@ -11,7 +11,7 @@ endif
 all: build/main.pdf
 
 # hier Python-Skripte:
-build/plot1.pdf: auswertung/dicke.py matplotlibrc | build
+build/plot1.pdf: auswertung/berechnung.py matplotlibrc | build
 	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/berechnung.py
 
 build/plot2.pdf: auswertung/dicke.py matplotlibrc | build
@@ -21,7 +21,7 @@ build/plot3.pdf: auswertung/schönerplot.py matplotlibrc | build
 	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/schönerplot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf:build/plot1.pdf build/plot2.pdf build/plot3.pdf 
+build/main.pdf:build/plot1.pdf build/plot2.pdf build/plot3.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
