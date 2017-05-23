@@ -1,2 +1,86 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{Aktivität}
+Die Aktivität des Strahlers kann auf zwei verschiedene Arten ermittelt werden. Einerseits mit dem Zerfallsgesetz
+\begin{align}
+  A(t) = A_0 \symup{e}^{-\lambda t} = A_0 \symup e ^{-\frac{\ln 2}{t_{1/2}}t},
+\end{align}
+was eine Aktivität von
+\begin{align}
+  A(\mathrm{14.\ Mai\ 2017} - \mathrm{Oktober\ 1994}) = \SI{330}{\kilo\becquerel} \cdot \symup e^{-\frac{\ln 2}{\SI{432.2}{a}} \cdot \SI{22.62}{a}} = \SI{318.2}{\kilo\becquerel}
+\end{align}
+ergibt. Andererseits kann auch von der Zählrate, die in einem bestimmten Raumwinkel gemessen wird, auf die Vollkugel hochgerechnet werden:
+\begin{align}
+  A = N \cdot \frac{4 \pi}{\Omega} = \frac{5360}{\SI{180}{\second}} \cdot \frac{4 \pi}{\frac{\SI{2}{\milli\meter} \cdot \SI{10}{\milli\meter}}{(\SI{101}{\milli\meter})^2}} = \SI{190}{\kilo\becquerel}
+\end{align}
+Im Folgenden wird mit der zweiten, gemessenen, Aktivität weitergerechnet, da sie mehr Bezug zum tatsächlichen Versuchsaufbau besitzt.
+
+\subsection{Verstärker}
+Bei der Beobachtung der Detektorimpulse auf dem Oszilloskop ergab sich, dass die Anstiegszeit vor dem Verstärker
+\begin{equation}
+  t_i = \SI{300}{\nano\second},
+\end{equation}
+und nach dem Verstärker
+\begin{equation}
+  t_f = \SI{1000}{\nano\second}
+\end{equation}
+betrug.
+
+\subsection{Foliendicke}
+Die Energieverlustmessung ergab die in \autoref{tab:daten1} aufgelisteten und in \autoref{fig:energieverlust} geplotteten Ergebnisse mit und ohne Folie. Die Spannung wird als proportional zur am Detektor eintreffenden Teilchenenergie angenommen. Zur Ermittlung der Dicke wird dann die Energiedifferenz der beiden Messreihen bestimmt. Dies geschieht über
+\begin{align}
+  \increment E = E_{\upalpha} \cdot \frac{U_\mathrm{ohne} - U_\mathrm{mit}}{U_\mathrm{ohne}} = E_{\upalpha} \cdot \left(1- \frac{U_\mathrm{mit}}{U_\mathrm{ohne}}\right),
+\end{align}
+mit den beiden $U$-Achsenabschnitten der linearen Regression der Messdaten. Um daraus die Dicke zu bestimmen, wird \eqref{eqn:bethe} nach $\increment x$ umgestellt:
+\begin{align}
+  \increment x = \frac{\increment E}{\frac{4\pi\,e^4\,z^2\,N\,Z}{m_0\, v^2(4\pi\,\epsilon_0)^2} \ln \frac{2m_0\,v^2}{I}}
+\end{align}
+Mit eingesetzen
+\begin{align}
+\label{eqn:blup}
+  Z &= 79 \\
+  z &= 2 \\
+  v &= c \sqrt{1-\frac{1}{(1+\frac{E_\mathrm{kin}}{E_0})^2}} \\
+  I &= \SI{10}{eV} \cdot Z \\
+  \rho &= \SI{19.3}{\gram\per\cubic\centi\meter} \text{\cite{wolframalpha}} \\
+  M &= \SI{196.97}{\gram\per\mol} \text{\cite{wolframalpha}} \\
+  N &= \frac{\rho}{M} N_A
+\end{align}
+und Naturkonstanten aus \cite{codata} ergibt sich für die Dicke ein Wert von
+\begin{align}
+  \increment x = \SI{3.8402+-0.0005}{\micro\meter}
+\end{align}
+
+\fig{build/plot2.pdf}{Energieverlustmessung zur Dickenbestimmung. Abgelesene, gemittelte Spannungswerte auf der Ordinate, Luftdruck der Apparatur auf der Abszisse.}{energieverlust}
+
+\input{build/table_energieverlust.tex}
+\FloatBarrier
+\subsection{Differentieller Wirkungsquerschnitt}
+Im zweiten Teil soll die Rutherford-Streuformel verifiziert werden. Dazu wird aus den gemessenen Zählraten in Abhängigkeit vom Streuwinkel der differentielle Wirkungsquerschnitt berechnet, dies geschieht über
+
+\begin{align}
+  \frac{\increment \sigma}{\increment \Omega} &= \frac{N}{N_0} \cdot \frac{A}{N_T} \cdot \frac{1}{\increment \Omega} \\
+\intertext{mit der Zählrate ohne Streufolie}
+  N_0 &= \frac{5360}{\SI{180}{\second}},
+\intertext{der Blenden-Spaltfläche}
+  A &= \SI{10}{mm} \cdot \SI{2}{mm},
+\intertext{der Anzahl der bestrahlten Targetteilchen (für $N$ siehe \eqref{eqn:blup})}
+  N_T &= A \cdot \SI{2}{\micro\meter} \cdot N
+\intertext{und dem Raumwinkel}
+  \increment \Omega &= \frac{A}{r^2} = \SI{1.96}{\milli\steradian}.
+\end{align}
+Daraus folgen die in \autoref{tab:daten2} und \autoref{fig:plot3} dargestellten Werte. In Abb.~\ref{fig:plot3} ist zusätzlich die Kurve geplottet, die ein Einsetzen der entsprechenden (bereits erwähnten) Werte in \eqref{eqn:rutherford} ergibt.
+\fig{build/plot3.pdf}{Gemessene differentielle Wirkungsquerschnitte in Abhängigkeit vom Streuwinkel.}{plot3}
+\input{build/daten2.tex}
+
+\subsection{Mehrfachstreuung}
+Bei der Messung verschieden dicker Goldfolien zu den Effekten der Mehrfachstreuung unter einem Winkel
+\begin{equation}
+  \theta = \SI{10}{\degree}
+\end{equation}
+wurden die folgenden Zählraten gemessen:
+\begin{align}
+  N_{\SI{2}{\micro\meter}} &= \SI{1.368}{\per\second}\\
+  N_{\SI{4}{\micro\meter}} &= \SI{1.159}{\per\second}
+\end{align}
