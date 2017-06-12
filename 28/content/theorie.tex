@@ -1,5 +1,85 @@
 \section{Ziel}
-\label{sec:Ziel}
+\label{sec:ziel}
+Das Ziel dieses Experiments ist es, das magnetische Moment $\mu_s$ resultierend aus dem Eigendrehimpuls, dem Spin, eines freien Elektrons mit Hilfe der Hochfrequenz-Spektroskopie zu bestimmen. Desweiteren soll die totale Flussdichte des Erdmagnetfelds ermittelt werden.
 
 \section{Theorie}
 \label{sec:theorie}
+\subsection{Quantenmechanischer Zusammenhang von Bahndrehimpuls und magnetischem Moment}
+In der Einelektronnäherung und in Polarkoordinaten lässt sich für ein Atom folgende Wellenfunktion aufstellen
+\begin{equation}
+\Psi_\mathrm{n,l,m}(r,\theta,\phi) = R_{n,l}(r)\,\Theta_{l,m}(\theta)\,\Phi(\phi) = R_{n,l}(r)\,\Theta_{l,m}(\theta)\,\frac{e^{im\phi}}{\sqrt{2\pi}}.
+\end{equation}
+Die Wellenfunktion setzt sich aus der radialabhängigen Funktion $R$, der breitenkreisabhängigen Funktion $\Theta$ und der azimutalwinkelabhängigen Funktion $\Phi$ zusammen. Dabei bezeichnet $n$ die Hauptquantenzahl, $l$ die Bahndrehimpulsquantenzahl und $m$ die Orientierungsquantenzahl. Die drei Teile der Wellenfunktion sind normiert. Aus der Gleichung für die Stromdichte
+\begin{equation}
+  \vec{S}=\frac{\hbar}{2m_0i}(\Psi^* \nabla\Psi-\Psi\nabla\Psi^*)
+\end{equation}
+mit $\hbar=\frac{h}{2\pi}$ und $h$ als Planck'schem Wirkungsquantum und $m_0$ als Ruhemasse des Elektrons folgt, dass die radial- und breitenkreisabhängigen Anteile der Teilchenstromdichte gleich 0 sind, da die zugehörigen Wellenfunktionen reell sind. Somit ergibt sich die azimutale Teilchennstromdichte
+\begin{equation}
+  S_\phi = \frac{\hbar}{m_0}\frac{R^2\,\Theta^2}{2\pi}\frac{m}{r\sin\theta}.
+\end{equation}
+Nun soll aus dieser Stromdichte das entstehende magnetische Moment $\mu_z$ berechnet werden. Es ergibt durch Multiplikation von Kreisstrom und umschlossener Fläche.
+\begin{equation}
+  \mathrm{d}\mu_z=F(\theta)\mathrm{d}I_\phi
+\end{equation}
+Eine Integration über die Querschnittsfläche der Elektronenhülle unter Berücksichtigung der Normierungsbedingungen für die Anteile der Wellenfunktion führt zu
+\begin{equation}
+  \mu_z=-\frac{1}{2}{e_0}{m_0}m\hbar =:\mu_B\,m
+\end{equation}
+$\mu_B$ wird als Bohrsches Magneton bezeichnet.
+
+\subsection{Energieaufspaltung beim Anlegen eines äußeren Magnetfelds}
+Der Drehimpuls $\vec{l}$ kann relativ zu einer festgelegten Achse verschiedene Orientierungen einnehmen. Bezeichnet man diese Achse mit $\vec{z}$, so gilt für die $z$-Komponente des Drehimpulses
+\begin{equation}
+  l_z=m_l\hbar,
+\end{equation}
+wobei die Orientierungsquantenzahl $m_l$ alle ganzzahligen Werte zwischen $-l$ und $+l$ annehmen kann (siehe Abbildung  \ref{fig:richtungl}).
+\begin{figure}
+	\centering
+  \includegraphics[width=0.3\textwidth] {content/richtungl.pdf}
+	\caption{Richtungsquantelung des Bahndrehimpulses für $l=1$ \cite{anleitung28}.}
+	\label{fig:richtungl}
+\end{figure}
+Daraus folgt, dass der Drehimpuls relativ zur Feldrichtung $2l+1$ mögliche Orientierungen besitzt.
+Die Aufspaltung der Energienniveaus beim Anlegen eines äußeren Magnetfeldes $\vec{B}$ kommt dadurch zustande, dass einem magnetisches Moment $\vec{M}$ entsprechend $E=\vec{M}\cdot\vec{B}$ Energie zugeführt wird und das magnetische Moment aufgrund der Richtungsquantelung $2l+1$ unterschiedliche Werte annehmen kann. Die Aufspaltung ist äquidistant, da es sich hier um den normalen Zeeman-Effekt handelt. Hier erfolgt die Aufspaltung nach der Orientierungsquantenzahl $m_l$, da freie Elektronen betrachtet werden. Sobald die Spin-Bahn-Kopplung berücksichtigt werden muss, geschieht die Aufspaltung nach der Orientierungsquantenzahl $m_j$ ($J=L+S$). Dies wird als anomaler Zeeman-Effekt bezeichnet. In Abbildung \ref{fig:aufspaltung} ist die Energieaufspaltung durch ein äußeres Magnetfeld für ein Hüllenelektron mit $l=2$ dargestellt.
+\begin{figure}
+	\centering
+  \includegraphics[width=0.6\textwidth] {content/aufspaltung.pdf}
+	\caption{Aufspaltung von $E_0$ eines Hüllenelektrons mit $l=2$ durch ein äußeres Magnetfeld mit Flussdichte $B$ \cite{anleitung28}.}
+	\label{fig:aufspaltung}
+\end{figure}
+
+Nicht nur der Bahndrehimpuls $l$ hat verschiedene Orientierungsmöglichkeiten. Der Eigendrehimpuls $s$ eines Elektrons hat zwei Einstellmöglichkeiten. Die zugehörige Orientierungsquantenzahl $m_s$ kann entsprechend die Werte $\pm\frac{1}{2}$ annehmen. Für die $z$-Komponente des Spins gilt
+\begin{equation}
+  S_z = m_s\hbar = \pm \frac{\hbar}{2}.
+\end{equation}
+Eine grapische Darstellung der Einstellmöglichkeiten des Spins ist in Abbildung \ref{fig:spin} zu sehen.
+\begin{figure}
+	\centering
+  \includegraphics[width=0.3\textwidth] {content/spin.pdf}
+	\caption{Einstellmöglichkeiten des Spins relativ zum Magnetfeld in $z$-Richtung \cite{anleitung28}.}
+	\label{fig:spin}
+\end{figure}
+
+Das magnetische Moment des Elektrons, welches aus dem Spin resultiert lässt sich mit Hilfe des Landé-Faktors $g$ in Einheiten des Bohrschen Magnetons angeben. Es gilt:
+\begin{equation}
+  \mu_{S_z} = -g\,m_s\,\mu_B = -\frac{g}{2}\mu_B.
+\end{equation}
+Der Landé-Faktor beschreibt das Verhältnis vom klassisch erwarteten magnetischen Moment $\mu_B$ und dem tatsächlich gemessenen, welches aufgrund des in der klassichen Physik nicht erklärtem Spin, von der Erwartung abweicht. $g$ ist somit dimeonsionslos und liegt in der Größenordnung 1.
+
+\subsection{Elektronenspin-Resonanz-Methode}
+Ein Stoff mit freien Elektronen befindet sich in einem Magnetfeld, wodurch das Energienievau in zwei Niveaus aufgespalten wird. Die Energiedifferenz zwischen den beiden Unterniveaus berechnet sich aus
+\begin{equation}
+  \Delta E = g\,\mu_B\,B.
+\end{equation}
+Damit die Elektronen in den höheren Energiezustand übergehen, wird das System mit einer Frequenz angeregt, die dem Energieunterschied der beiden Niveuas entspicht. Dabei ändert die Orientierungsquantenzahl $m_s$ ihr Vorzeichen. Für diesen Prozess gilt die Gleichung
+\begin{equation}
+\label{eqn:g}
+  h\,f=g\,\mu_B\,B.
+\end{equation}
+Dieser Effekt wird Elektronenspin-Resonanz genannt und hat zur Folge, dass die zur Anregung verwendeten "Lichtquanten" bei Resonanz absorbiert werden. Die angeregten Elektronen verlieren ihre Energie durch Wechselwirkungsprozesse mit ihrer Umgebung.
+Das Magnetfeld einer Helmholtzspule lässt sich aus
+\begin{equation}
+\label{eqn:spule}
+  B(I)=\frac{8}{\sqrt{125}}\mu_0\frac{n}{r}I
+\end{equation}
+berechnen. $\mu_0$ ist dabei die magnetische Feldkonstante, $n=156$ die Anzahl der Windungen, $r=\SI{0,1}{\meter}$ und $I$ der Feldstrom.

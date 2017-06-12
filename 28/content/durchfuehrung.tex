@@ -1,2 +1,32 @@
 \section {Aufbau und Durchführung}
 \label{sec:durchführung}
+
+\subsection{Aufbau}
+\begin{figure}
+	\centering
+  \includegraphics[width=0.5\textwidth] {content/aufbau1.pdf}
+	\caption{Prinzipieller Aufbau zur Elektronenspin-Resonanz \cite{anleitung28}.}
+	\label{fig:aufbau1}
+\end{figure}
+
+Der allgemeine Aufbau, dargestellt in Abbildung \ref{fig:aufbau1}, besteht aus einer Helmholtzspule zur Erzeugung eines homogenen Magnetfelds, einer Hochfrequenzspule mit Probe, einem Hochfrequenz-Oszillator und einer Brückenschaltung. Durch das hochfrequente Magnetfeld, welches durch die Spule erzeugt wird, können die Elektronen in den höheren Energiezustand übergehen. Dies hat eine makroskopische Änderung der Magnetisierung der Probe zufolge, welches wiederum die Induktivität der Spule ändert, wodurch sich die gemessene Brückenspannung ändert.
+
+\begin{figure}
+	\centering
+  \includegraphics[width=0.7\textwidth] {content/aufbau2.pdf}
+	\caption{Schematische Darstellung der Messapparatur \cite{anleitung28}.}
+	\label{fig:aufbau2}
+\end{figure}
+
+Abbildung \ref{fig:aufbau2} zeigt den gesamten Aufbau. Durch einen quarzstabilisierten Generator wird hochfrequente Wechselspannung erzeugt, mit der die Brückenschaltung betrieben wird. Da die sehr kleine gemessene Brückenspannung nachverstärkt werden soll und Störsignal unterdrückt werden sollen, wird ein Überlagerungsempfänger am Ausgang der Brücke eingebaut. Abbildung \ref{fig:ueberlagerung} zeigt den Aufbau eines solchen Überlagerungsempfängers.
+\begin{figure}
+	\centering
+  \includegraphics[width=0.8\textwidth] {content/überlagerung.pdf}
+	\caption{Schaltbild eines Überlagerungsempfängers \cite{anleitung28}.}
+	\label{fig:ueberlagerung}
+\end{figure}
+Durch den auf die Signalfrequenz $f_e$ abstimmbaren Vorvertärker werden Spannungen mit anderen Frequenzen herausgefiltert. Außerdem wird das Eingangssingal bereits leicht verstärkt. In der darauffolgenden Mischstufe findet eine Überlagerung aus Eingangssignal und einer Spannung der Frequenz $f_\mathrm{osz}$, welche durch den darunter eingezeichneten Oszillator erzeugt wird, statt. Dadurch kommt es zu Schwebungen. Die hauptsächliche Verstärkung und Unterdrückung von Störspannungen erfolgt durch den ZF-Verstärker. Die Demodulatorstufe richtiet die Wechselspannung gleich und glättet diese.
+
+
+\subsection{Durchführung}
+Zunächst wird die Resonanzfrequenz gesucht, also die Frequenz, bei der die Brückenspannung maximal wird. Dann wird die Brücke abgeglichen, zuerst mit $C_\mathrm{grob}$ anschließend mit $C_\mathrm{fein}$ und $R$. Anschließend wird die Brücke mittels $R$ auf etwa $\SI{200}{\milli\volt}$ verstimmt, um Überlagerungseffekte in der Resonanzkurve zu vermeiden. Dann wird die Resonanzkurve mit einem XY-Schreiber aufgenommen. Dabei wird die Stromstärke auf der $x$-Achse und die Brückenspannung auf der $y$-Achse aufgetragen. Da der Einfluss des Erdmagnetfelds berücksichtig werden soll, wird der Aufbau einmal parallel und einmal antiparallel zum Erdmagnetfeld ausgerichtet. Die Messung wird für insgesamt fünf Frequenzen wiederholt. Da nach der ersten Messung kein XY-Schreiber mehr zur Verfügung stand, wurden für die anderen Frequenzen jeweils Brückenspannung und Stromstärke in einem Bereich um das Maximum aufgenommen. Anschließend wird ein Fit durchgeführt, um so das Maximum zu bestimmen.
