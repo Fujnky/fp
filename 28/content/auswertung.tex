@@ -1,2 +1,40 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+Für die Kalibrierung des XY-Schreibers wird eine lineare Regression mit fünf Stromstärken (\autoref{tab:kal}) durchgeführt, diese ergibt den in \autoref{fig:kal} sichtbaren Verlauf. Daraus ergeben sich Steigung und Ordinatenanbschnitt
+
+\begin{align}
+  m &= \SI{3.088}{\milli\ampere\per\milli\meter} \\
+  \intertext{und}
+  n &= \SI{-10.34}{\milli\ampere}.
+\end{align}
+
+\input{build/kal.tex}
+\fig{build/kal.pdf}{Messdaten und lineare Regression der Kalibrierung.}{kal}
+
+Mithilfe dieser Kalibrierung lassen sich bei der grafischen Messung die Stromstärken
+\begin{align}
+  I_1 &= \SI{374.2}{\milli\ampere} \\
+  \intertext{und}
+  I_2 &= \SI{437.5}{\milli\ampere}
+\end{align}
+ermitteln, wobei die beiden Werte jeweils für eine Magnetfeldrichtung stehen. Für die von Hand aufgenommenen Messreihen wurde jeweils ein nichtlinearer Fit an die modifizierte Cauchy-Verteilung
+\begin{align}
+  U_B (I) = -\frac{N}{\pi} \cdot \frac{s}{s^2 + (I-t)^2} + b
+\end{align}
+durchgeführt. Diese Ergebnisse sind in den Abbildungen \ref{fig:a}, \ref{fig:c}, \ref{fig:d} und \ref{fig:e} zu finden. Von Interesse ist jeweils der $t$-Parameter, der die Lage das Extremums kennzeichnet. Die sich ergebenden Stromstärken der Minima finden sich in \autoref{tab:ergfit}. Diese Spulenstromstärken lassen sich über \eqref{eqn:spule} in eine magnetische Flussdichte umrechnen. Wenn man nun die Messungen paarweise mittelt, hebt sich der Einfluss des Erdmagnetfeldes auf. Mit in \eqref{eqn:g} eingesetzer Frequenz lässt sich dann daraus das gyromagnetische Verhältnis $g$ bestimmen. Ebenfalls folgt aus dem halben Betrag der Flussdichtendifferenz die totale Flussdichte $B_\bigoplus$ des Erdmagnetfelds. Diese Ergebnisse finden sich in \autoref{tab:ergg}.
+Gemittelt ergibt sich ein Landé-Faktor von
+\begin{align}
+  \langle g \rangle &= \num[round-mode=off]{-2.003+-0.07}
+  \intertext{und eine totale Flussdichte des Erdmagnetfelds von}
+  \langle B_\bigoplus \rangle &= \SI{40+-37}{\micro\tesla}.
+\end{align}
+
+
+\fig{build/a.pdf}{Von Hand aufgnommene Messreihe bei $f=\SI{10.62}{\mega\hertz}$ mit Fit.}{a}
+\fig{build/c.pdf}{Von Hand aufgnommene Messreihe bei $f=\SI{20.56}{\mega\hertz}$ mit Fit.}{c}
+\fig{build/d.pdf}{Von Hand aufgnommene Messreihe bei $f=\SI{25.00}{\mega\hertz}$ mit Fit.}{d}
+\fig{build/e.pdf}{Von Hand aufgnommene Messreihe bei $f=\SI{29.423}{\mega\hertz}$ mit Fit.}{e}
+
+\input{build/ergfit.tex}
+\input{build/ergg.tex}
