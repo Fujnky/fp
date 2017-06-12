@@ -12,7 +12,7 @@ all: build/main.pdf
 
 # hier Python-Skripte:
 build/kal.tex: auswertung/plot.py matplotlibrc | build
-	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/plot.py
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/kal.tex
