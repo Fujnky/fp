@@ -23,4 +23,34 @@ folgt. Wird nun ein externes Magnetfeld $\vec B$ angelegt, ergibt sich durch die
 \end{align}
 Da gemäß der Quantenmechanik der Drehimpuls gequantelt ist, gibt es nur eine abzählbare Anzahl von möglichen Energiezuständen. Dies führt letztendlich zu der in \autoref{fig:aufspaltung} dargestellten Aufspaltung der Energieniveaus, die wir uns in diesem Experiment zunutze machen.
 
-\fig{bilder/aufspaltung.pdf}{Energieniveaufspaltung eines Atoms durch ein angelegtes externes Magnetfeld.}{aufspaltung}[width=0.6\textwidth]
+\fig{bilder/aufspaltung.pdf}{Energieniveaufspaltung eines Atoms durch ein angelegtes externes Magnetfeld \cite{anleitung21}.}{aufspaltung}[width=0.6\textwidth]
+
+\subsection{Das Prinzip des optischen Pumpens}
+Mittels optischem Pumpen lässt sich eine nicht thermische Besetzung der Niveaus erzeugen. Dies soll zunächst an einem Alkali-Atom ohne Kernspin erklärt werden. Es besitzt den Grundzustand \ce{^2S_{1/2}} und die ersten beiden angeregten Zustände \ce{^2P_{1/2}} und \ce{^2P_{3/2}}. Die Aufspaltung durch Anlegen eines äußeren Magnetfelds ist in \autoref{fig:aufsp} dargestellt.
+\fig{bilder/übergänge.pdf}{Aufspaltung der Energieniveaus des angenommenen Alkali-Atoms mit möglichen Übergängen zwischen den Niveaus \cite{anleitung21}.}{aufsp}[width=0.5\textwidth]
+Da $J=\frac{1}{2}$ in beiden Niveaus, erfolgt jeweils in Zeeman-Aufspaltung in zwei Unterniveaus. Für die Orientierungsquanten zahl $M_J$ gilt die Auswahlregel $\Delta M_J = 0,\pm1$. Somit sind folgende Übergänge möglich: Der $\sigma^+$-Übergang, bei dem rechtsirkular polarisiertes Licht (Spin ist antiparallel zur Ausbreitungsrichtung ausgereichtet) emittiert beziehungsweise absorbiert wird. Beim $\sigma^-$-Übergang wird entsprechend linkszirkular polarisiertes licht emittiert/absorbiert, womit der Spin parallel zur Ausbreitungsrichtung ist. Die $\pi$-Übergänge können mit linear polarisiertem Licht angeregt werden.\\
+Der prinzipielle Aufbau des optischen Pumpens ist in \autoref{fig:aufbau1} zu sehen.
+\fig{bilder/aufbau1.pdf}{Prinzipieller Aufbau des optischen Pumpens \cite{anleitung21}.}{aufbau1}[width=0.7\textwidth]
+In der Dampfzelle befindet sich ein Dampf aus den zu untersuchenden Atomen im thermischen Gleichgewicht. Es existiert ein äußeres Magnetfeld. Das energiereichere Niveau ist nach der Boltzmannschen Gleichung weniger besetzt ist als das mit geringerer Energie. Wird in diese Zelle rechtszirkular polarisiertes Licht eingestrahlt, ist aufgrund der zuvor erwähnten Auswahlregel für $M_J$ nur der Übergang von \ce{^2S_{1/2}} mit $M_J=-\frac{1}{2}$ nach \ce{^2P_{1/2}} mit $M_J=\frac{1}{2}$ erlaubt. Bereits nach kurzer Zeit ($\approx$\SI{10e-8}{\second}) fällt Elektron durch spontane Emission in die Unterniveaus des Grundzustands zurück. Aus \ce{^2S_{1/2}}, $M_J= \frac{1}{2}$ sind aufgrund der Auswahlregel keine Übergänge in die P-Niveaus möglich, was dazu führt, dass dieses Niveau stärker besetzt ist als das energieärmere S-Niveau. Damit Inversion der Besetzung realisiert. Experimentell lässt sich dies durch einen Lichdetektor nachweisen. Vor der Besetzungsinversion wird das auf die  Atome in der Dampfzelle  treffende Licht absorbiert, wodurch innerhalb des Atoms der zuvor beschriebene Übergang stattfindet. Je mehr Elektronen durch spontane Emisson aus dem S-Niveau mit $M_J=-\frac{1}{2}$ in das S-Niveau mit $M_J = \frac{1}{2}$ fallen, desto unwahrscheinlicher wird eine Absorption; also wird die Transparenz der Zelle mit der Zeit größer.
+
+\subsection{Präzisionsmessung der Zeeman-Aufspaltung}
+Um die Abstände zwischen den Zeeman-Niveaus auszumessen, werden Methoden der Hochfrequenz-Spektroskopie verwendet. Zunächst wird zwischen verschiedenen Möglichkeiten unterschieden, auf die ein angeregtes Atom wieder in den Grundzustand übergehen kann. Bei spontaner Emisson wird ein Photon, welches die Energie der Energiedifferenz der Niveaus trägt, abgestrahlt. Das elektron fällt auf das niedrigere Niveau zurück. Die induzierte Emission unterschieden sich von der spontanen Emission in sofern, dass zuvor ein Photon eingestrahlt werden muss. Auch dieses muss die exakte Energie der Differenz der Niveaus besitzen. Somit sind nach der Emission zwei Photonen mit identischer Energie, Polarisation und Ausbreitungsrichtung vorhanden. Welche der beiden Emissionsmöglichkeiten abläuft, hängt von der Energie der eingestrahlten Lichtquanten ab. Es werden die Einstein-Koeffizienten. welche Übergangswahrscheinlichkeiten beschreiben, für spontane und induzierte Emission sowie für Absorption aufgestellt.Da im thermodynamischen Gleichgewicht die Besetzungszahl jedes Niveaus konstant sein muss, muss die Anzahl der Emissionen (spontan und induziert) gleich der Anzahl der Absorptionen entsprechen. Mit einigen weiteren Umformungsschritten erhält man schließlich für den Einstein-Koeffizienten der spontane Emission
+\begin{equation}
+  A_{21} = \frac{8\pi\,h}{c^3}B_{12}\nu^3,
+\end{equation}
+wobei $c$ die Lichtgeschwindigkeit, $h$ das Plancksche Wirkungsquantum, $B_{12}$ den Einstein-Koeffizeinten der induzierten Emission und $\nu$ die Frequenz darstellt. Entscheidend hierbei ist die $\nu^3$-Abhängigkeit, da dies bedeutet, dass spontane bei niedrigen Frequenzen sehr unwahrscheinlich ist. Also tritt im zu untersuchenden Bereich der Zeeman-Niveaus nahezu ausschließlich induzierte Emission auf. \\
+Wenn kein Magnetfeld vorhanden ist, werden alle eingestrahlten Lichtquanten absorbiert, da keine Aufspaltung der Energiniveaus und somit kein optisches Pumpen möglich ist. Wird das $B$-Feld eingeschaltet, wird die Besetzung der S-Niveaus umgekehrt und die Zelle wird transparent. Bei einem Wert von
+\begin{equation}
+  \label{eqn:gf}
+  B = \frac{4\pi m_0}{e_0 g_F} \nu
+\end{equation}
+beginnt sich das \ce{^2S_{1/2}}-Niveau mit $M_J=\frac{1}{2}$ durch induzierte Emission zu entleeren. Dadurch kann ein Teil des eingestrahlten Lichtes absorbiert werden, was zu einer abhnehmenden Transparenz der Zelle führt. Der Verlauf ist in \autoref{fig:transparenz} dargestellt.
+\fig{bilder/transparenz.pdf}{Transparenz einer Alkali-Dampfzelle bei rechtszirkular eingestrahltem Licht in Abhängigkeit vom Magnetfeld bei angelegtem Hochfrequenzfeld \cite{anleitung21}.}{transparenz}[width=0.5\textwidth]
+
+\subsection{Quadratischer Zeeman-Effekt}
+Bei zunehmender Magnetfeldstärke müssen bei der Bestimmung der Übergangsenergie $U_{HF}$ Terme höherer Ordnung mit einbezogen werden. Es gilt
+\begin{equation}
+  \label{eqn:zeeman^2}
+  U_\mathrm{HF} = g_F\,\mu_B\,B + g_f^2\,\mu_B^2\,B^2\,\frac{1-2M_F}{\Delta E_\mathrm{Hy}}-... .
+\end{equation}
+$\Delta E_{Hy}$ beschreibt hier die Energiedifferenz durch die Hyperfeinstrukturaufspaltung.
