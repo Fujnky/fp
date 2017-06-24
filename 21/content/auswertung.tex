@@ -1,2 +1,44 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Vertikalfeld}
+Zur Kompensation des vertikalen Erdmagnetfelds ist eine Stromstärke von
+\begin{align}
+  I_\mathrm{vert} = \SI{0.32}{\ampere}
+\end{align}
+nötig, was über
+\begin{equation}
+  B(I)=\frac{8}{\sqrt{125}}\mu_0\frac{n}{r}I
+\end{equation}
+mit den zuvor genannten Spuleneigenschaften einer magnetischen Flussdichte von
+\begin{align}
+  B^\oplus_\mathrm{vert} = \SI{35.25}{\micro\tesla}
+\end{align}
+entspricht.
+
+\subsection{Gyromagnetische Faktoren}
+Für die verschiedenen Frequenzen der HF-Spule wurden die in \autoref{tab:feld} aufgelisteten Stromstärken der Resonanzstellen gemessen, sowie analog die magnetische Flussdichte bestimmt. In \autoref{fig:plot1} werden die Werte einschließlich linearer Regression grafisch dargestellt. Der gemittelte Ordinatenabschnitt beider Geraden entspricht der Horizontalkomponente des Erdmagnetfelds und wurde zu
+\begin{align}
+  B^\oplus_\mathrm{hor} &= \SI{21.38+-0.12}{\micro\tesla}
+\end{align}
+bestimmt. Aus \eqref{eqn:gf} folgt, dass aus der Steigung $m$ der Geraden über
+\begin{align}
+  g_F = \frac{h}{m \mu_b}
+\end{align}
+der gyromagnetische Faktor des jeweiligen Isotops folgt. So wurden die Faktoren
+\begin{align}
+  g_F^{\ce{^{85}Rb}} &= 0{,}330\pm0{,}0000000011 \\
+  \intertext{und}
+  g_F^{\ce{^{87}Rb}} &= 0{,}495\pm0{,}0000000024
+\end{align}
+ermittelt.
+
+\input{build/feld.tex}
+\fig{build/plot1.pdf}{Gemessene magnetische Flussdichten, aufgetragen über die zugehörige Frequenz.}{plot1}
+
+
+\subsection{Isotopenverhältnis}
+Anhand der Höhe der Resonanzkurven kann das Isotopenverhältnis der verwendeten Rubidiumprobe abgeschätzt werden. Dazu wird bei einer Frequenz von $\nu = \SI{100}{kHz}$ das Magnetfeld durchfahren und die Resonanzkurve mithilfe eines Oszilloskops aufgenommen. Da das im Versuch verwendete Oszilloskop im XY-Modus keinen Datenexport erlaubt, werden beide Kanäle im YT-Modus mithilfe eines Single-Shot-Triggers festgehalten und dann einzeln abgespeichert. Das Ergebnis findet sich in \autoref{fig:plot2}. Die Resonanzstellen werden mit einer Cauchy-Verteilung gefittet, sodass die Extremstelle jeweils präzise ermittelt werden kan. Letztendlich ergibt sich ein Isotopenverhältnis von
+\begin{align}
+  \frac{N(\ce{^{87}Rb})}{N(\ce{^{85}Rb})} \approx \frac{\num{2.42}}{\num{3.85}} \approx \num{0.63}
+\end{align}
+\fig{build/plot2.pdf}{Verlauf der Intensität und Stromstärke in Abhängigkeit von der Zeit bei einer Messung mit $\nu=\SI{100}{\kilo\hertz}$. Fits der Resonanzstellen mit einer modifizierten Cauchy-Verteilung.}{plot2}
