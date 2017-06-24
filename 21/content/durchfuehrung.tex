@@ -1,2 +1,16 @@
 \section {Aufbau und Durchführung}
 \label{sec:durchführung}
+
+\subsection{Aufbau}
+\fig{bilder/aufbau2.pdf}{Schematische Darstellung des vollständigen Aufbaus des Versuchs \cite{anleitung21}.}{aufbau2}[width=0.6\textwidth]
+Der gesamte Aufbau für das Experiment ist in \autoref{fig:aufbau2} zu sehen. Zunächst wird das von der Spektrallampe erzeugte Licht durch eine Sammellinse gebündelt und geht anschließend durch einen $D_1$-Filter, sodass nur Licht der Wellenlänge der $D_1$-Linie des Rubidium-Spektrums ($\lambda = \SI{794,4}{\nano\meter}$) den Filter durchdringen kann. Anschließend wird dieses linear polarisiert um danach mit einem Winkel von 45° auf ein $\lambda/4$ Plättchen zu treffen, wodurch eine Umwandlung in zirkular polarisiertes Licht erfolgt. Dieses Licht trifft auf die Dampfzelle, in der sich Dampf der Rubidium-Isotope \ce{^{85}Rb} und \ce{^{87}Rb} befindet. Das aus der Dampfzelle austretende Licht wird durch eine weitere Sammellinse fokussiert, trifft auf ein Si-Photoelement. Dieses ist an ein Oszilloskop angeschlossen. Außerdem ist die Dampfzelle von drei Helmholtz-Spulenpaaren umgeben: In horizontaler Richtung die Sweep- und die Horizontalfeld-Spule und in vertikaler Richtung eine Vertikalfeld-Spule. Sie haben folgende Radien und Windungszahlen
+\begin{align}
+  R_\mathrm{sweep} &= \SI{16,39}{\centi\meter}& N_\mathrm{sweep} &= 11 \\
+  R_\mathrm{hor} &= \SI{15,79}{\centi\meter} & N_\mathrm{hor} &= 154 \\
+  R_\mathrm{vert} &= \SI{11,735}{\centi\meter} & N_\mathrm{vert} &= 20.
+\end{align}
+Die Dampfzelle befindet sich in eine weiteren Spule, die zur Erzeugung eines hochfrequenten Wechselfelds dient.
+
+\subsection{Durchführung}
+Zunächst erfolgt eine Justage des Strahlengangs, sodass die vom Detektor gemessene Intensität maximal wird. Dazu werden die beiden Sammellinsen entsprechend positioniert. Danach werden der Filter, der Linearpolarisator und die $\lambda/4$ Platte eingebaut.
+Um den Einfluss des Erdmagnetfeldes berücksichtigen zu können, wird die Messapparatur in Nord-Süd-Richtung ausgerichtet. Um die vertikale Komponente zu kompensieren, wird für die Vertikalfeld-Spule die Stromstärke eingestellt, die die Breite der Nullfeldlinie (siehe \autoref{fig:transparenz}) minimal wird. Anschließend werden für Frequenzen zwischen $0,1-1\si{\mega\Hz}$ im Abstand von \SI{0,1}{\mega\Hz} jeweils die Resonanzstellen für die beiden Rubidium-Isotope gesucht. Die dazugehörgen Spulenströme werden notiert. Nach dieser Messreihe wird der Verlauf eines Signalbildes auf dem Oszilloskop gespeichert.
