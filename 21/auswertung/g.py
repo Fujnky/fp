@@ -38,12 +38,13 @@ def auswerten(I1, I2, i, Z):
 
     g = 1/(slope / const.h * const.value('Bohr magneton'))
     print('g-Faktor Rb-{}: {}'.format(Z, g))
+    print('Kernspin Rb-{}: {}'.format(Z, 1/(2*g)- 0.5))
 
-    return g, intercept, B
+    return g, slope, intercept, B
 
 
-g1, emf1, B1 = auswerten(I11, I12, 0, '87')
-g2, emf2, B2 = auswerten(I21, I22, 1, '85')
+g1, slope1, emf1, B1 = auswerten(I11, I12, 0, '87')
+g2, slope2, emf2, B2 = auswerten(I21, I22, 1, '85')
 
 print((I11, I12, B1*1e6, I21, I22, B2*1e6))
 tools.table((*data[:3], B1*1e6, *data[3:], B2*1e6), ('f/MHz', 'I_1^\mathrm{sweep}/A', 'I_1^\mathrm{hor}/A', r'B_1/\micro\tesla', 'I_2^\mathrm{sweep}/A', 'I_2^\mathrm{hor}/A', r'B_2/\micro\tesla'), 'build/feld.tex', 'Bestimmte Stromstärken der jeweiligen Resonanzstellen und daraus berechnete magnetische Flussdichten.', 'tab:feld')
@@ -63,3 +64,14 @@ plt.yticks(t + [emf.n*1e6], ['{0:8.0f}'.format(ti) for ti in t]+[r'$B_\mathrm{ho
 plt.legend(loc='best')
 plt.tight_layout(pad=0)
 plt.savefig('build/plot1.pdf')
+plt.close()
+
+
+plt.xlabel(r'$f/\mathrm{MHz}$')
+plt.ylabel(r'$B/\mathrm{µT}$')
+plt.xlim(0, 1.1)
+
+plt.plot(f/1e6, (B1-f*slope1.n-emf1.n)*1e6, 'x')
+plt.plot(f/1e6, (B2-f*slope2.n-emf2.n)*1e6, 'x')
+
+plt.savefig('build/plot3.pdf')

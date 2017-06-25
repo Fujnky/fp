@@ -25,6 +25,13 @@ Da gemäß der Quantenmechanik der Drehimpuls gequantelt ist, gibt es nur eine a
 
 \fig{bilder/aufspaltung.pdf}{Energieniveaufspaltung eines Atoms durch ein angelegtes externes Magnetfeld \cite{anleitung21}.}{aufspaltung}[width=0.6\textwidth]
 
+Aus länglichen Überlegungen folgt, dass die $g$-Faktoren untereinander wie folgt verknüft sind:
+
+\begin{align}
+  g_J &= \frac{(g_S+1)(J+1) + (g_S-1)(S(S+1)-L(L+1))}{2J(J+1)} \\
+  \label{eqn:näherung}
+  g_F &= g_J \frac{F(F+1)+J(J+1)-I(I+1)}{2F(F+1)}
+\end{align}
 \subsection{Das Prinzip des optischen Pumpens}
 Mittels optischem Pumpen lässt sich eine nicht thermische Besetzung der Niveaus erzeugen. Dies soll zunächst an einem Alkali-Atom ohne Kernspin erklärt werden. Es besitzt den Grundzustand \ce{^2S_{1/2}} und die ersten beiden angeregten Zustände \ce{^2P_{1/2}} und \ce{^2P_{3/2}}. Die Aufspaltung durch Anlegen eines äußeren Magnetfelds ist in \autoref{fig:aufsp} dargestellt.
 \fig{bilder/übergänge.pdf}{Aufspaltung der Energieniveaus des angenommenen Alkali-Atoms mit möglichen Übergängen zwischen den Niveaus \cite{anleitung21}.}{aufsp}[width=0.5\textwidth]

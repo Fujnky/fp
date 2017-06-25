@@ -30,7 +30,12 @@ der gyromagnetische Faktor des jeweiligen Isotops folgt. So wurden die Faktoren
   \intertext{und}
   g_F^{\ce{^{87}Rb}} &= 0{,}495\pm0{,}0000000024
 \end{align}
-ermittelt.
+ermittelt. Über \eqref{eqn:näherung} folgt der Kernspin
+\begin{align}
+  I_{\ce{^{85}Rb}} &= 0{,}509\pm0{,}000000005 \\
+  \intertext{und}
+  I_{\ce{^{87}Rb}} &= 1{,}014\pm0{,}0000000005
+\end{align}
 
 \input{build/feld.tex}
 \fig{build/plot1.pdf}{Gemessene magnetische Flussdichten, aufgetragen über die zugehörige Frequenz.}{plot1}
@@ -42,3 +47,8 @@ Anhand der Höhe der Resonanzkurven kann das Isotopenverhältnis der verwendeten
   \frac{N(\ce{^{87}Rb})}{N(\ce{^{85}Rb})} \approx \frac{\num{2.42}}{\num{3.85}} \approx \num{0.63}
 \end{align}
 \fig{build/plot2.pdf}{Verlauf der Intensität und Stromstärke in Abhängigkeit von der Zeit bei einer Messung mit $\nu=\SI{100}{\kilo\hertz}$. Fits der Resonanzstellen mit einer modifizierten Cauchy-Verteilung.}{plot2}
+
+\subsection{Quadratischer Zeeman-Effekt}
+\label{sec:QuadZee}
+In \autoref{fig:quadratisch} sind die Messwerte erneut dargestellt, wobei die lineare Regression jeweils abgezogen wurde. Damit bleiben lediglich Terme höherer Ordnung übrig. Da keine Parabel oder Ähnliches erkennbar ist, kann davon ausgegangen werden, dass der quadratische Zeeman-Effekt bei den verwendeten Flussdichten einen so geringen Effekt hat, dass er im Rahmen unserer Messgenauigkeit nicht erfasst werden kann.
+\fig{build/plot3.pdf}{Residuen der linearen Regression aus \autoref{fig:plot1}, also die Differenz der Messwerte zur linearen Regression.}{quadratisch}
