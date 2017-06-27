@@ -61,6 +61,7 @@ Ekin = 5.486e6 * const.e
 
 E0 = 3727e6 * const.e
 v = const.c * np.sqrt(1-(1/(1+Ekin/E0))**2)
+print('v = {}m/s'.format(v))
 i = 10 * const.e * Z
 dx = 101e-3
 
@@ -76,4 +77,5 @@ print(N)
 
 de = 5.486e6 * const.e * (1-intercept2/intercept1)
 dx = de / (4 * np.pi * const.e**4 * z**2 * N * Z / (m * v**2 * (4 * np.pi * const.epsilon_0)**2) * np.log(2 * m * v**2 / i))
+print('{}MeV'.format(de/const.e/1e6))
 print('{}µm'.format(dx*1e6))

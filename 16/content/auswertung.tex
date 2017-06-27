@@ -30,7 +30,7 @@ betrug.
 \subsection{Foliendicke}
 Die Energieverlustmessung ergab die in \autoref{tab:daten1} aufgelisteten und in \autoref{fig:energieverlust} geplotteten Ergebnisse mit und ohne Folie. Die Spannung wird als proportional zur am Detektor eintreffenden Teilchenenergie angenommen. Zur Ermittlung der Dicke wird dann die Energiedifferenz der beiden Messreihen bestimmt. Dies geschieht über
 \begin{align}
-  \increment E = E_{\upalpha} \cdot \frac{U_\mathrm{ohne} - U_\mathrm{mit}}{U_\mathrm{ohne}} = E_{\upalpha} \cdot \left(1- \frac{U_\mathrm{mit}}{U_\mathrm{ohne}}\right),
+  \increment E = E_{\upalpha} \cdot \frac{U_\mathrm{ohne} - U_\mathrm{mit}}{U_\mathrm{ohne}} = E_{\upalpha} \cdot \left(1- \frac{U_\mathrm{mit}}{U_\mathrm{ohne}}\right) = \SI{1.65946+-0.00020}{MeV},
 \end{align}
 mit den beiden $U$-Achsenabschnitten der linearen Regression der Messdaten. Um daraus die Dicke zu bestimmen, wird \eqref{eqn:bethe} nach $\increment x$ umgestellt:
 \begin{align}
@@ -41,7 +41,7 @@ Mit eingesetzen
 \label{eqn:blup}
   Z &= 79 \\
   z &= 2 \\
-  v &= c \sqrt{1-\frac{1}{(1+\frac{E_\mathrm{kin}}{E_0})^2}} \\
+  v &= c \sqrt{1-\frac{1}{(1+\frac{E_\mathrm{kin}}{E_0})^2}} = \SI{16248.2}{\kilo\meter\per\second} \\
   I &= \SI{10}{eV} \cdot Z \\
   \rho &= \SI{19.3}{\gram\per\cubic\centi\meter} \text{\cite{wolframalpha}} \\
   M &= \SI{196.97}{\gram\per\mol} \text{\cite{wolframalpha}} \\
