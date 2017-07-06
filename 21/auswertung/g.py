@@ -12,6 +12,7 @@ f, I11, I12, I21, I22 = data.astype(float)
 
 f *= 1e6
 
+
 def helmholtz(I, N, r):
     return 8/np.sqrt(125) * const.mu_0 * N * I / r
 
@@ -48,19 +49,30 @@ g1, slope1, emf1, B1 = auswerten(I11, I12, 0, '87')
 g2, slope2, emf2, B2 = auswerten(I21, I22, 1, '85')
 
 print((I11, I12, B1*1e6, I21, I22, B2*1e6))
-tools.table((*data[:3], B1*1e6, *data[3:], B2*1e6), ('f/MHz', 'I_1^\mathrm{sweep}/A', 'I_1^\mathrm{hor}/A', r'B_1/\micro\tesla', 'I_2^\mathrm{sweep}/A', 'I_2^\mathrm{hor}/A', r'B_2/\micro\tesla'), 'build/feld.tex', 'Bestimmte Stromstärken der jeweiligen Resonanzstellen und daraus berechnete magnetische Flussdichten.', 'tab:feld')
+tools.table((*data[:3], B1*1e6, *data[3:], B2*1e6),
+            ('f/MHz',
+             'I_1^\mathrm{sweep}/A',
+             'I_1^\mathrm{hor}/A',
+             r'B_1/\micro\tesla',
+             'I_2^\mathrm{sweep}/A',
+             'I_2^\mathrm{hor}/A',
+             r'B_2/\micro\tesla'), 'build/feld.tex',
+             'Bestimmte Stromstärken der jeweiligen Resonanzstellen und daraus berechnete magnetische Flussdichten.',
+             'tab:feld')
 
 emf = unc.ufloat(np.mean((emf1.n, emf2.n)), np.std((emf1.n, emf2.n)))
 
 print('Gemitteltes Horizontalkomponente des Erdmagnetfelds: {}µT'.format(
                                                                 1e6*emf))
 
-print('Kompensiertes Vertikalfeld: {}µT'.format(helmholtz(0.23, 20, 11.735e-2)*1e6))
+print('Kompensiertes Vertikalfeld: {}µT'.format(
+      helmholtz(0.23, 20, 11.735e-2)*1e6))
 plt.xlabel(r'$f/\mathrm{MHz}$')
 plt.ylabel(r'$B/\mathrm{µT}$')
 plt.xlim(0, 1.1)
 t = list(plt.yticks()[0])
-plt.yticks(t + [emf.n*1e6], ['{0:8.0f}'.format(ti) for ti in t]+[r'$B_\mathrm{hor}^\oplus$'])
+plt.yticks(t + [emf.n*1e6],
+           ['{0:8.0f}'.format(ti) for ti in t]+[r'$B_\mathrm{hor}^\oplus$'])
 
 plt.legend(loc='best')
 plt.tight_layout(pad=0)
