@@ -4,6 +4,8 @@ from scipy.optimize import curve_fit
 import scipy.constants as const
 import scipy.stats
 import tools
+import uncertainties as unc
+import uncertainties.unumpy as unp
 
 # An den Leser: Das hier ist nicht besonders sinnvoll, wenn man den Versuch
 # richtig durchgeführt hat.
@@ -38,7 +40,10 @@ def auswerten(param):
     plt.tight_layout(pad=0)
     plt.savefig('build/'+name+'.pdf')
     plt.close()
-    return popt1[2], popt2[2]
+    param1 = unc.correlated_values(popt1, pcov1)
+    param2 = unc.correlated_values(popt2, pcov2)
+
+    return param1[2], param2[2]
 
 
 I = np.array(list(map(auswerten, zip(liste, p0liste)))).T/1e3
@@ -49,11 +54,17 @@ tools.table((f[:-1]/1e6, I[0]*1e3, I[1]*1e3), ('f/MHz', 'I_1/mA', 'I_2/mA'), 'bu
 data_kal = np.genfromtxt('daten/kal.txt', dtype=object).T
 tools.table(data_kal, ('l/mm', 'I/mA'), 'build/kal.tex', 'Daten der XY-Schreiber-Kalibrierung.', 'tab:kal')
 kal_l, kal_i = data_kal.astype(float)
+
+
 m, n, r, p, std = scipy.stats.linregress(kal_l, kal_i)
+z, cov = np.polyfit(kal_l, kal_i, 1, cov=True)
+
+m = unc.ufloat(z[0], cov[0][0])
+n = unc.ufloat(z[1], cov[1][1])
 
 x = np.linspace(0, 210)
 plt.plot(kal_l, kal_i, 'x', label='Kalibrierung XY-Schreiber')
-plt.plot(x, m * x + n, label='Lin. Regression')
+plt.plot(x, m.n * x + n.n, label='Lin. Regression')
 plt.xlim(0, 210)
 plt.xlabel(r'$l/\mathrm{mm}$')
 plt.ylabel(r'$I/\mathrm{mA}$')
@@ -62,12 +73,10 @@ plt.tight_layout(pad=0)
 plt.savefig('build/kal.pdf')
 plt.close()
 
-l = np.array((124.5, 145))
+l = unp.uarray((124.5, 145))
 I_xy = (m*l+n)[np.newaxis].T/1e3
-print(I_xy.shape, I.shape)
 I = np.concatenate((I, I_xy), axis=1)
-print(I)
-
+print(I*1e3)
 Ig = np.mean(I, axis=0)
 dI = I[1]-I[0]
 
@@ -76,7 +85,15 @@ g = - const.h * f / (Bg * (0.5 * const.e / const.m_e * const.hbar))
 
 dB = const.mu_0 * 8 / np.sqrt(125) * 156/0.1 * dI
 
-tools.table((f/1e6, Bg*1e6, g, dB*1e6), ('f/MHz', r'B/\micro\tesla', 'g', r'B_\bigoplus/\micro\tesla'), 'build/ergg.tex', r'Berechnete Messergebnisse von $g$ und $B_\bigoplus$.', 'tab:ergg')
+print(Bg*1e6)
 
-print(g.mean(), g.std(ddof=1))
-print('{}+-{} µT'.format(dB.mean()*1e6, dB.std(ddof=1)*1e6))
+plt.errorbar(f/1e6, unp.nominal_values(Bg)*1e6, yerr=unp.std_devs(Bg)*1e6, fmt='C1x')
+plt.xlabel(r'$f/\mathrm{MHz}$')
+plt.ylabel(r'$B/\mathrm{µT}$')
+plt.tight_layout(pad=0)
+plt.savefig('build/plotg.pdf')
+
+#tools.table((f/1e6, Bg*1e6, g, dB*1e6), ('f/MHz', r'B/\micro\tesla', 'g', r'B_\bigoplus/\micro\tesla'), 'build/ergg.tex', r'Berechnete Messergebnisse von $g$ und $B_\bigoplus$.', 'tab:ergg')
+
+#print(g.mean(), g.std(ddof=1))
+#print('{}+-{} µT'.format(dB.mean()*1e6, dB.std(ddof=1)*1e6))
