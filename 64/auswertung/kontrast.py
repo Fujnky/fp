@@ -20,4 +20,4 @@ x = np.linspace(-0.2, 3.5, 2000)
 
 plt.plot(x, f(x, *params))
 plt.plot(phi, K, 'x')
-plt.show()
+plt.savefig('build/kontrast.pdf')
