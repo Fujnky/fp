@@ -1,5 +1,47 @@
 \section{Ziel}
 \label{sec:Ziel}
+Ziel dieses Versuchs ist es, mit Hilfe des Sangnac-Interferometers den Brechungsindex von Luft und den von Glas zu ermitteln. Außerdem soll der maximale Kontrast des Interferometers bestimmt werden.
 
 \section{Theorie}
 \label{sec:theorie}
+Bei Licht handelt es sich um eine elektromagnetische Welle. Somit können durch Gangunterschiede verschiedener Wellen Interferenzeffekte auftreten, welche mit einem Interferometer gemessen werden können.
+
+\subsection{Brechungsindex von Gasen}
+Der Brechungsindex eines Mediums ist wie folgt definiert
+\begin{equation}
+  n=\frac{c_0}{v_\mathrm{ph}},
+\end{equation}
+wobei $c_0$ die Lichtgeschwindigkeit im Vakuum und $v_\mathrm{ph}$ die im jeweiligen Medium ist. Für die Phasengeschwindigkeit wiederum gilt $v_\mathrm{ph}=\frac{\omega}{k}$ mit $\omega = 2\pi f$ und $k$ als Wellenzahl. Für $k$ ergibt sich daraus folgender Zusammenhang
+\begin{equation}
+  k=\frac{2\pi}{\lambda_\mathrm{vac}}n
+\end{equation}
+mit $\lambda_\mathrm{vac}$ als Wellenlänge des Lichts im Vakuum. Trifft Licht nun auf ein Medium mit einem anderen Brechungsindex, so entsteht aufgrund der unterschiedlichen Ausbreitungsgeschwindigkeiten in den beiden Medien eine Phasenverschiebung zwischen der Welle im Medium und der Welle außerhalb des Mediums.
+\begin{equation}
+  \Delta \Phi = \frac{2\pi}{\lambda_\mathrm{vac}}\Delta n L = \frac{2\pi}{\lambda_\mathrm{vac}}(n-1)L
+\end{equation}
+Dabei ist $L$ die Länge der Gaszelle. Wegen der Phasenverschiebung treten hinter Gaszelle Interferenzeffekte auf. Die Anzahl der Intereferentmaxima beziehungsweise -minima lässt sich aus der Phasenverschiebung berechnen.
+\begin{equation}
+  M=\frac{\Delta \Phi}{2\pi} = \frac{n-1}{\lambda_\mathrm{vac}}(2L)
+\end{equation}
+Außerdem gilt für Gase das Lorentz-Lorenz Gesetz, welches besagt, dass der Brechungsindex sowohl von der Temperatur als auch vom Druck abhängt.
+
+\subsection{Brechungsindex von Festkörpern}
+Um den Brechungindex eines Plättchens zu bestimmen, wird dieses um eine Winkel $\Theta$ gedreht. Die durch das Plättchen laufende Welle erleidet wie zuvor einen Phasenverschiebung, da das Plättchen einen von Luft verschiedenen Brechungsindex besitzt. Zusätzlich muss das Licht aufgrund der Rotation des Plättchens um den Winkel $\Theta$ eine längere Strecke zurücklegen, bevor es auf das Plättchen trifft. Im Folgenden wird erläutert, wie sich daraus der Brechungsindex bestimmen lässt.
+\fig{bilder/geo.pdf}{Geometrie eines Plättchens der Dicke $T$ um den Winkel $\Theta$ gedreht \cite{anleitung64}.}{geo}[width=0.6\textwidth]
+\autoref{fig:geo} zeigt die Geometrie des Strahlengangs durch das Plättchen, welches um den Winkel $\Theta$ gedreht ist. Über geometrische Beziehungen und das Brechungsgesetz von Snellius lässt sich für die Phasenverschiebung in Abhängigkeit von $\Theta$ folgende Gleichung herleiten
+\begin{equation}
+  \Phi(\Theta) = \frac{2\pi}{\lambda_\mathrm{vac}}T \left( \frac{n-\cos(\Theta-\Theta')}{cos(\Theta')} - (n-1)\right).
+\end{equation}
+Für kleine Winkel lässt sich diese Gleichung als
+\begin{equation}
+  \Phi(\Theta) = \frac{2\pi}{\lambda_\mathrm{vac}}T\left(\frac{n-1}{2n}\Theta^2+O(\Theta^4)\right)
+\end{equation}
+nähern. Auch hier soll aus der Phasenverschiebung die Anzahl der Interferenzmaxima beziehungsweise - minima bestimmt werden, was mit
+\begin{equation}
+  M \approx 2 \frac{T}{\lambda_\mathrm{vac}}\frac{n-1}{2n}\Theta^2
+\end{equation}
+erfolgt. Alternativ kann der Brechungsindex über
+\begin{equation}
+  n = \frac{\alpha^2+2(1-cos\Theta)(1-\alpha)}{2(1-cos\Theta -\alpha)}
+\end{equation}
+berechnet werden. Dabei entspricht $\alpha = \frac{M(\Theta)\lambda_\mathrm{vac}}{2T}$.
