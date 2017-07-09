@@ -13,9 +13,13 @@ all: build/main.pdf
 # hier Python-Skripte:
 build/kontrast.pdf: auswertung/kontrast.py matplotlibrc | build
 	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/kontrast.py
+build/gas.pdf: auswertung/gas.py matplotlibrc | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/gas.py
+build/glas.pdf: auswertung/glas.py matplotlibrc ../tools.py | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/glas.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/kontrast.pdf
+build/main.pdf: build/kontrast.pdf build/gas.pdf build/glas.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \

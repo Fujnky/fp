@@ -114,6 +114,8 @@ def format_row(row, reformat_list, is_uncertain_list):
     return '& '  +  ' & '.join(row_reformatted) +  ' \\\\\n'
 
 def get_format_string(set, precision):
+    #Bei 0 geht log nicht
+    set[set == 0] = 1
     mag = np.ceil(np.log10(np.absolute(set))).astype(int)
 
     if mag.max() > max_magnitude or mag.min() < min_magnitude:

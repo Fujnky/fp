@@ -1,2 +1,55 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{Kontrast}
+Die Messung des Kontrasts in Abhängigkeit vom Polarisationswinkel des ersten Filters ist in \autoref{tab:kontrast} dargestellt. Die daraus bestimmten Kontraste sind ebenfalls in \autoref{fig:kontrast} aufgetragen und mit
+\begin{align}
+  f(x) &= A |\sin(\omega x + \phi)|
+\end{align}
+gefittet. Es ergibt sich daraus ein Kontrastmaximum bei
+\begin{align}
+  \phi = \SI{47.66}{\degree} = \SI{0.8318}{\radian}.
+\end{align}
+Der Filter wird daraufhin auf ebendieses Maximum justiert.
+\input{build/kontrast.tex}
+\fig{build/kontrast.pdf}{Kontrast in Abhängigkeit vom Polarisationswinkel, mit Fit.}{kontrast}
+
+\subsection{Brechungsindex der Glasplättchen}
+
+Nach der Justage wird der Doppelglashalter in den Strahlengang des Interferometers gebracht und die \emph{Fringes} in Abhängigkeit vom Winkel gemessen. Es ergeben sich die Werte in \autoref{tab:glas}, die auch in \autoref{fig:glas} dargestellt sind. Dabei ist $M$ die gemittelte und aufsummierte Anzahl von Intereferenzmaxima. Um aus diesen Daten den Brechungsindex des Glases zu bestimmen wird \eqref{eqn:glas} zu
+\begin{align}
+M &= \frac{T}{\lambda_\mathrm{vac}} \frac{n-1}{2n} ((\alpha+\theta)^2 - (\alpha-\theta)^2) \\
+  &= \frac{2T}{\lambda_\mathrm{vac}} \frac{n-1}{n} \alpha \theta
+\end{align}
+umgeschrieben, um die Beeinflussung beider Teilstrahlen durch die verschiedenen Plättchen zu modellieren. Dabei ist $\alpha$ der Winkel, den beide Plättchen jeweils zur Strahlsenkrechten verdreht sind. In unserem Fall bedeutet das
+\begin{align}
+  \alpha = \SI{10}{\degree}.
+\end{align}
+Im folgenden kann eine Ausgleichsrechnung an die Messdaten durchgeführt werden. Mit
+\begin{align}
+  T &= \SI{1}{\milli\meter}, \\
+  \lambda_\mathrm{vac} &= \SI{632.990}{nm}
+\end{align}
+ergibt diese einen Brechungsindex von
+\begin{align}
+  n_\mathrm{Glas} &= \num{1.544+-0.002}
+\end{align}
+für das Glas.
+\input{build/glas.tex}
+
+\fig{build/glas.pdf}{Messdaten und Fit der Glasmessung.}{glas}
+
+\subsection{Brechungsindex von Luft}
+Für die Luft-Messung wird eine Gaszelle im Strahlengang zuerst evakuiert und dann wieder mit Luft gefüllt, dabei wird für verschiedene Drücke die Zahl der vorbeiziehenden Interferenzextrema notiert. Die Messdaten finden sich in \autoref{tab:gas} und \autoref{fig:gas}. Zur Bestimmung des Brechungsindex wird dann die Messung mittels linearer Regression auf den Normaldruck
+\begin{align}
+  p_\mathrm{norm} &= \SI{1013.25}{\hecto\pascal}
+\intertext{entsprechend}
+  M(p_\mathrm{norm}) &= \num{42.43}
+\end{align}
+extrapoliert. Mithilfe von \eqref{eqn:gas} kann dann ein Brechungsindex
+\begin{align}
+  n_\mathrm{Luft} = \num{1.0001324+-0.0000001}
+\end{align}
+ermittelt werden.
+\input{build/gas.tex}
+\fig{build/gas.pdf}{Messdaten und lineare Regression der Glasmessung.}{gas}
