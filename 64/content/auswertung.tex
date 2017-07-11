@@ -2,7 +2,11 @@
 \label{sec:Auswertung}
 
 \subsection{Kontrast}
-Die Messung des Kontrasts in Abhängigkeit vom Polarisationswinkel des ersten Filters ist in \autoref{tab:kontrast} dargestellt. Die daraus bestimmten Kontraste sind ebenfalls in \autoref{fig:kontrast} aufgetragen und mit
+Die Messung des Kontrasts
+\begin{align}
+  K = \frac{I_\mathrm{max}-I_\mathrm{min}}{I_\mathrm{max}+I_\mathrm{min}}
+\end{align}
+in Abhängigkeit vom Polarisationswinkel des ersten Filters ist in \autoref{tab:kontrast} dargestellt, wobei die angegebene Photodiodenspannung proportional zur Intensität $I$ ist. Die daraus bestimmten Kontraste sind ebenfalls in \autoref{fig:kontrast} aufgetragen und mit
 \begin{align}
   f(x) &= A |\sin(\omega x + \phi)|
 \end{align}
@@ -16,16 +20,17 @@ Der Filter wird daraufhin auf ebendieses Maximum justiert.
 
 \subsection{Brechungsindex der Glasplättchen}
 
-Nach der Justage wird der Doppelglashalter in den Strahlengang des Interferometers gebracht und die \emph{Fringes} in Abhängigkeit vom Winkel gemessen. Es ergeben sich die Werte in \autoref{tab:glas}, die auch in \autoref{fig:glas} dargestellt sind. Dabei ist $M$ die gemittelte und aufsummierte Anzahl von Intereferenzmaxima. Um aus diesen Daten den Brechungsindex des Glases zu bestimmen wird \eqref{eqn:glas} zu
+Nach der Justage wird der Doppelglashalter in den Strahlengang des Interferometers gebracht und die \emph{Fringes} in Abhängigkeit vom Winkel gemessen. Es ergeben sich die Werte in \autoref{tab:glas}, die auch in \autoref{fig:glas} dargestellt sind. Dabei ist $M$ die gemittelte und aufsummierte Anzahl von Interferenzmaxima. Um aus diesen Daten den Brechungsindex des Glases zu bestimmen wird \eqref{eqn:glas} zu
 \begin{align}
-M &= \frac{T}{\lambda_\mathrm{vac}} \frac{n-1}{2n} ((\alpha+\theta)^2 - (\alpha-\theta)^2) \\
+M &= \frac{\increment \phi_+ + \increment \phi_-}{2\pi} \\
+  &= \frac{T}{\lambda_\mathrm{vac}} \frac{n-1}{2n} ((\alpha+\theta)^2 - (\alpha-\theta)^2) \\
   &= \frac{2T}{\lambda_\mathrm{vac}} \frac{n-1}{n} \alpha \theta
 \end{align}
 umgeschrieben, um die Beeinflussung beider Teilstrahlen durch die verschiedenen Plättchen zu modellieren. Dabei ist $\alpha$ der Winkel, den beide Plättchen jeweils zur Strahlsenkrechten verdreht sind. In unserem Fall bedeutet das
 \begin{align}
   \alpha = \SI{10}{\degree}.
 \end{align}
-Im folgenden kann eine Ausgleichsrechnung an die Messdaten durchgeführt werden. Mit
+Im Folgenden kann eine Ausgleichsrechnung an die Messdaten durchgeführt werden. Mit
 \begin{align}
   T &= \SI{1}{\milli\meter}, \\
   \lambda_\mathrm{vac} &= \SI{632.990}{nm}

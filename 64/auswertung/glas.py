@@ -13,7 +13,7 @@ theta = np.deg2rad(data[0].astype(float))
 M = data[1:4].astype(float)
 M = unp.uarray(M.mean(axis=0), M.std(axis=0)).cumsum()
 
-tools.table((data[0], *data[1:4], M), (r'\phi/\degree', 'M_1', 'M_2', 'M_3', 'M'), 'build/glas.tex', 'Messdaten und Ergebnisse der Glasmessung.', 'tab:glas', round_figures=(0, 3, 0, 0, 0, 3))
+tools.table((data[0], *data[1:4], M), (r'\phi/\degree', 'M_1', 'M_2', 'M_3', 'M'), 'build/glas.tex', 'Messdaten und Ergebnisse der Glasmessung.', 'tab:glas', round_figures=(0, 0, 0, 0, 3))
 
 T = 1e-3
 lambda_ = 623.990e-9
