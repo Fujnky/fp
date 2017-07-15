@@ -38,9 +38,9 @@ def auswerten(I1, I2, i, Z):
     # print('slope: {}µT/MHz, intercept: {} µT'.format(
     #    slope*1e6, intercept*1e6))
 
-    g = 1/(slope / const.h * const.value('Bohr magneton'))
+    g = -1/(slope / const.h * const.value('Bohr magneton'))
     print('g-Faktor Rb-{}: {}'.format(Z, g))
-    print('Kernspin Rb-{}: {}'.format(Z, 1/(2*g)- 0.5))
+    print('Kernspin Rb-{}: {}'.format(Z, 0.5 * (const.value('electron g factor')/g - 1)))
 
     return g, slope, intercept, B
 
