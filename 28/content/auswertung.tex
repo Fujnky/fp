@@ -4,9 +4,9 @@
 Für die Kalibrierung des XY-Schreibers wird eine lineare Regression mit fünf Stromstärken (\autoref{tab:kal}) durchgeführt, diese ergibt den in \autoref{fig:kal} sichtbaren Verlauf. Daraus ergeben sich Steigung und Ordinatenanbschnitt
 
 \begin{align}
-  m &= \SI{3.088}{\milli\ampere\per\milli\meter} \\
+  m &= \SI{3.09+-0.11}{\milli\ampere\per\milli\meter} \\
   \intertext{und}
-  n &= \SI{-10.34}{\milli\ampere}.
+  n &= \SI{-10+-14}{\milli\ampere}.
 \end{align}
 
 \input{build/kal.tex}
@@ -18,14 +18,18 @@ Mithilfe dieser Kalibrierung lassen sich bei der grafischen Messung die Stromst�
   \intertext{und}
   I_2 &= \SI{437.5}{\milli\ampere}
 \end{align}
-ermitteln, wobei die beiden Werte jeweils für eine Magnetfeldrichtung stehen. Für die von Hand aufgenommenen Messreihen wurde jeweils ein nichtlinearer Fit an die modifizierte Cauchy-Verteilung
+ermitteln, wobei die beiden Werte jeweils für eine Magnetfeldrichtung stehen. Für die von Hand aufgenommenen Messreihen wurde jeweils ein nichtlinearer Fit an eine Lorentzkurve
 \begin{align}
-  U_B (I) = -\frac{N}{\pi} \cdot \frac{s}{s^2 + (I-t)^2} + b
+  U_B (I) = A \cdot \frac{s}{s^2 + (I-t)^2} + b
 \end{align}
-durchgeführt. Diese Ergebnisse sind in den Abbildungen \ref{fig:a}, \ref{fig:c}, \ref{fig:d} und \ref{fig:e} zu finden. Von Interesse ist jeweils der $t$-Parameter, der die Lage das Extremums kennzeichnet. Die sich ergebenden Stromstärken der Minima finden sich in \autoref{tab:ergfit}. Diese Spulenstromstärken lassen sich über \eqref{eqn:spule} in eine magnetische Flussdichte umrechnen. Wenn man nun die Messungen paarweise mittelt, hebt sich der Einfluss des Erdmagnetfelds auf. Mit in \eqref{eqn:g} eingesetzter Frequenz lässt sich dann daraus das gyromagnetische Verhältnis $g$ bestimmen. Ebenfalls folgt aus dem halben Betrag der Flussdichtendifferenz die totale Flussdichte $B_\bigoplus$ des Erdmagnetfelds. Diese Ergebnisse finden sich in \autoref{tab:ergg}.
-Gemittelt ergibt sich ein Landé-Faktor von
+durchgeführt. Diese Ergebnisse sind in den Abbildungen \ref{fig:a}, \ref{fig:c}, \ref{fig:d} und \ref{fig:e} zu finden. Von Interesse ist jeweils der $t$-Parameter, der die Lage das Extremums kennzeichnet. $A$ bezeichnet die Amplitude der Kurve, $s$ die Steilheit und $b$ eine absolute Verschiebung. Die sich ergebenden Stromstärken der Minima finden sich in \autoref{tab:ergfit}. Diese Spulenstromstärken lassen sich über \eqref{eqn:spule} in eine magnetische Flussdichte umrechnen. Wenn man nun die Messungen paarweise mittelt, hebt sich der Einfluss des Erdmagnetfelds auf. Mit in \eqref{eqn:g} eingesetzter Frequenz lässt sich dann daraus das gyromagnetische Verhältnis $g$ bestimmen. Ebenfalls folgt aus dem halben Betrag der Flussdichtendifferenz die totale Flussdichte $B_\bigoplus$ des Erdmagnetfelds. Diese Ergebnisse finden sich in \autoref{tab:ergg}.
+Mithilfe der in \autoref{fig:regress} dargestellten linearen Regression ergibt sich über
 \begin{align}
-  \langle g \rangle &= \num[round-mode=off]{-2.003+-0.07}
+  g = \frac{h}{m\mu_b}
+\end{align}
+ein Landé-Faktor von
+\begin{align}
+  \langle g \rangle &= \num[round-mode=off]{2.12+-0.15}
   \intertext{und eine totale Flussdichte des Erdmagnetfelds von}
   \langle B_\bigoplus \rangle &= \SI{40+-37}{\micro\tesla}.
 \end{align}
@@ -35,6 +39,9 @@ Gemittelt ergibt sich ein Landé-Faktor von
 \fig{build/c.pdf}{Von Hand aufgenommene Messreihe bei $f=\SI{20.56}{\mega\hertz}$ mit Fit.}{c}
 \fig{build/d.pdf}{Von Hand aufgenommene Messreihe bei $f=\SI{25.00}{\mega\hertz}$ mit Fit.}{d}
 \fig{build/e.pdf}{Von Hand aufgenommene Messreihe bei $f=\SI{29.423}{\mega\hertz}$ mit Fit.}{e}
+
+\fig{build/plotg.pdf}{Lineare Regression der Abhängigkeit von $B$ und $f$.}{regress}
+
 
 \input{build/ergfit.tex}
 \input{build/ergg.tex}

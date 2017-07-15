@@ -11,14 +11,14 @@ import uncertainties.unumpy as unp
 # richtig durchgeführt hat.
 
 liste = ['a', 'c', 'd', 'e']
-p0liste = [[3000, 50, 300, 220], [3000, 50, 400, 220], [3000, 50, 600, 220],
+p0liste = [[3000, 50, 300, 220], [-3000, 50, 400, 220], [3000, 50, 600, 220],
            [3000, 50, 750, 220]]
 
 f = np.array((10.62e6, 20.56e6, 25e6, 29.423e6, 15.9037e6))
 
 
-def cauchy(x, N, s, t, b):
-    return -N/np.pi * (s/(s**2 + (x-t)**2))+b
+def cauchy(x, A, s, t, b):
+    return A * (s/(s**2 + (x-t)**2))+b
 
 def auswerten(param):
     name, p0 = param
@@ -56,11 +56,11 @@ tools.table(data_kal, ('l/mm', 'I/mA'), 'build/kal.tex', 'Daten der XY-Schreiber
 kal_l, kal_i = data_kal.astype(float)
 
 
-m, n, r, p, std = scipy.stats.linregress(kal_l, kal_i)
+#m, n, r, p, std = scipy.stats.linregress(kal_l, kal_i)
 z, cov = np.polyfit(kal_l, kal_i, 1, cov=True)
 
-m = unc.ufloat(z[0], cov[0][0])
-n = unc.ufloat(z[1], cov[1][1])
+m = unc.ufloat(z[0], np.sqrt(cov[0][0]))
+n = unc.ufloat(z[1], np.sqrt(cov[1][1]))
 
 x = np.linspace(0, 210)
 plt.plot(kal_l, kal_i, 'x', label='Kalibrierung XY-Schreiber')
@@ -73,27 +73,42 @@ plt.tight_layout(pad=0)
 plt.savefig('build/kal.pdf')
 plt.close()
 
-l = unp.uarray((124.5, 145))
-I_xy = (m*l+n)[np.newaxis].T/1e3
-I = np.concatenate((I, I_xy), axis=1)
-print(I*1e3)
+l = np.array((124.5, 145))
+I_xy = (m*l+n)/1e3
+
+I = np.append(I.T, [I_xy], axis=0).T
 Ig = np.mean(I, axis=0)
 dI = I[1]-I[0]
 
 Bg = const.mu_0 * 8 / np.sqrt(125) * 156/0.1 * Ig
-g = - const.h * f / (Bg * (0.5 * const.e / const.m_e * const.hbar))
-
+#g = - const.h * f / (Bg * (0.5 * const.e / const.m_e * const.hbar))
 dB = const.mu_0 * 8 / np.sqrt(125) * 156/0.1 * dI
 
-print(Bg*1e6)
+#print(dB)
 
-plt.errorbar(f/1e6, unp.nominal_values(Bg)*1e6, yerr=unp.std_devs(Bg)*1e6, fmt='C1x')
+z, cov = np.polyfit(f, unp.nominal_values(Bg), 1, cov=True, w=1/unp.std_devs(Bg))
+m = unc.ufloat(z[0], np.sqrt(cov[0][0]))
+n = unc.ufloat(z[1], np.sqrt(cov[1][1]))
+
+f_ = np.linspace(0, 30e6)
+B_fit = m.n*f_+n.n
+
+plt.xlim(0, 30)
+plt.ylim(0, 1100)
+plt.plot(f_/1e6, B_fit*1e6, label='Lineare Regression')
+plt.errorbar(f/1e6, unp.nominal_values(Bg)*1e6, yerr=unp.std_devs(Bg)*1e6, fmt='x', label='Messdaten')
+plt.legend(loc='best')
 plt.xlabel(r'$f/\mathrm{MHz}$')
 plt.ylabel(r'$B/\mathrm{µT}$')
 plt.tight_layout(pad=0)
 plt.savefig('build/plotg.pdf')
 
-#tools.table((f/1e6, Bg*1e6, g, dB*1e6), ('f/MHz', r'B/\micro\tesla', 'g', r'B_\bigoplus/\micro\tesla'), 'build/ergg.tex', r'Berechnete Messergebnisse von $g$ und $B_\bigoplus$.', 'tab:ergg')
+print(const.h / (m * const.value('Bohr magneton')))
+print(n*1e6)
+
+
+
+tools.table((f/1e6, Bg*1e6, dB*1e6), ('f/MHz', r'B/\micro\tesla', r'B_\bigoplus/\micro\tesla'), 'build/ergg.tex', r'Berechnete Messergebnisse.', 'tab:ergg')
 
 #print(g.mean(), g.std(ddof=1))
 #print('{}+-{} µT'.format(dB.mean()*1e6, dB.std(ddof=1)*1e6))
