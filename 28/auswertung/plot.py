@@ -96,15 +96,15 @@ B_fit = m.n*f_+n.n
 plt.xlim(0, 30)
 plt.ylim(0, 1100)
 plt.plot(f_/1e6, B_fit*1e6, label='Lineare Regression')
-plt.errorbar(f/1e6, unp.nominal_values(Bg)*1e6, yerr=unp.std_devs(Bg)*1e6, fmt='x', label='Messdaten')
+plt.errorbar(f/1e6, unp.nominal_values(Bg)*1e6, yerr=unp.std_devs(Bg)*1e6, fmt='x', label='Messdaten', capsize=5)
 plt.legend(loc='best')
 plt.xlabel(r'$f/\mathrm{MHz}$')
 plt.ylabel(r'$B/\mathrm{µT}$')
 plt.tight_layout(pad=0)
 plt.savefig('build/plotg.pdf')
 
-print(const.h / (m * const.value('Bohr magneton')))
-print(n*1e6)
+#print(const.h / (m * const.value('Bohr magneton')))
+#print(n*1e6)
 
 
 
