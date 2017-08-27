@@ -19,7 +19,7 @@ Es handelt sich um eine allgemeine Wellengleichung, deren Lösungen gedämpfte h
 \end{equation}
 Hier bezeichnet $\gamma$ die Ausbreitungskonstante und $t$ die Zeit. Die Ausbreitungskonstante setzt sich aus dem Dämpfungsbelag $\alpha$ und dem Phasenbelag $\beta$ zusammen
 \begin{equation}
-  \gamma =\alpha+i\beta=\sqrt{(R+J\omega L)(G+j\omega C)}.
+  \gamma =\alpha+i\beta=\sqrt{(R+j\omega L)(G+j\omega C)}.
 \end{equation}
 Wenn eine verlustbehaftete Leitung vorliegt, kommt es wegen Dispersion zu einer Verzerrung des Signals, welche unter anderem vom Wellenwiderstand $Z_0$ des Kabels abhängt. Für ein sinusförmiges Signal der Frequenz $\omega$ ist dieser wie folgt definiert
 \begin{equation}
@@ -36,10 +36,10 @@ Trifft dieser Puls nach der Zeit $T$ auf das Leitungsende, wird er dort reflekti
 \end{equation}
 wobei $\Gamma_a$ der Reflexionskoeffizient am Anfang und $\Gamma_e$ der Reflexionskoeffizient m Ende der Leitung ist. Der reflektierte Puls erreicht nach der Zeit $2T$ erneut den Anfang der Leitung, wo eine Reflexion mit der Amplitude $=\Gamma_a \cdot \Gamma_e \cdot U_0$ erfolgt. Die Amplitude nach n-facher Reflexion lässt sich durch die geometrische Reihe beschreiben, welche den Grenzwert
 \begin{equation}
-  U_e=U_=\left(\frac{1+\Gamma}{1-\Gamma_a \Gamma_e}\right)
+  U_e=U_0\left(\frac{1+\Gamma}{1-\Gamma_a \Gamma_e}\right)
 \end{equation}
 besitzt.\\
-Aus dem erstelllten Impulsfahrplan lässt sich der Spannungverlauf an einem Ort $z$ der Leitung ermittlen. Dieser ist in \autoref{fig:spannung} zu finden. Zum Zeitpunkt $t_1$ wird der Puls erstmals am Ort $z$ beobachtet. Nach der Reflexion am Leitungsende erreicht der Puls zum Zeitpunkt $t_2$ erneut den Messpunkt und besitzt nun die Amplitude $U-0 +\Gamma_L U_0$. Dann wird er erneut am Leitungsanfang reflektiert. Dieser Vorgang wiederholt sich, bis eine Grenzamplitude $U_e$ vorliegt.
+Aus dem erstelllten Impulsfahrplan lässt sich der Spannungverlauf an einem Ort $z$ der Leitung ermittlen. Dieser ist in \autoref{fig:spannung} zu finden. Zum Zeitpunkt $t_1$ wird der Puls erstmals am Ort $z$ beobachtet. Nach der Reflexion am Leitungsende erreicht der Puls zum Zeitpunkt $t_2$ erneut den Messpunkt und besitzt nun die Amplitude $U_0 +\Gamma_L U_0$. Dann wird er erneut am Leitungsanfang reflektiert. Dieser Vorgang wiederholt sich, bis eine Grenzamplitude $U_e$ vorliegt.
 
 \subsection{Koaxialkabel}
 Ein Koaxialkabel setzt sich aus einem kleinen zylinderförmigen Leiter des Durchmessers $d$ und eines sich darum befindenden größeren Leiter des Durchmessers $D$. Die beiden Leiter werden durch ein Dielektrikum voneinander getrennt. Das Verhältnis der beiden Durchmesser beinflusst sowohl den Wellenwiderstand als auch das Dämpfungsverhalten. Der Widerstand $R$ und der querleitwert $G$ weisen für hohe Frequenzen eine Frequenzabhängigkeit auf, da durch den Wechselstrom ein sich periodisch änderndes Magnetfeld im Leiterinneren entsteht, welches Wirbelströme induziert. Diese Wirbelströme beeinflussen den Widerstand, sodass dieser ab Frequenzen von etwa \SI{100}{\kilo\hertz} proportional zu $\sqrt{\omega}$ ist. Dieser Effekt wird als Skin-Effekt bezeichnet.
