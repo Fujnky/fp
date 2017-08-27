@@ -11,8 +11,8 @@ endif
 all: build/main.pdf
 
 # hier Python-Skripte:
-#build/magn-moment.pdf: auswertung/plot.py matplotlibrc | build
-#	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/plot.py
+build/alpha.pdf: auswertung/alpha.py | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/alpha.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 #build/main.pdf: build/magn-moment.pdf
