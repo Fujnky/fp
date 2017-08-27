@@ -1,2 +1,9 @@
 \section {Aufbau und Durchführung}
 \label{sec:durchführung}
+Der Aufbau des Experiments ist schmematisch in \autoref{fig:aufbau} dargestellt. Statt des Pulsers wird hier ein Rechteckgenerator verwendet. Die generierten Rechteckpulse werden auf die Leitung geschickt und die Spannungsverläufe mittels Oszilloskop gemessen.
+Zunächst sollen die Leitungskonstanten in Abhängigkeit von der Frequenz bestimmt werden. Dazu wird ein Koaxialkabel kurzgeschlossen und die Leitungskonstanten werden mit einem $RLC$-Messgerät ermittelt. Die Frequenz wird im Bereich zwischen 0 und \SI{2}{\kilo\hertz} jeweils um \SI{2}{\hertz} erhöht. Eine weitere Messung findet bei \SI{100}{\kilo\hertz} statt. \\
+Für die Messung der Dämpfungskonstante $\alpha$ wird auf dem Oszilloskop eine Fouriertransformation des Eingangssignals durchgeführt, um die Oberwellen auszumessen. Die Messung wird einmal für ein sehr kurzes Kabel, das nahezu keine Dämpfung zeigt und für ein längeres Kabel durchgeführt.
+Außerdem sollen die Leitungskonstanten aus den Eingangsimpedanzen einmal mit kurzgeschlossenem und einmal mit offenem Ende evaluiert werden. Aus den Verläufen der Signale können die Leitungskonstanten berechnet werden. Außerdem wird mit Hilfe der reflektierten Pulse die Länge des Kabels bestimmt.\\
+Des Weiteren werden drei verschiedene unbekannte Abschlusswiderstände angeschlosse. Aus dem Verlauf der Signalspannung kann auf die Bauteile geschlossen werden.\\
+Zuletzt werden zwei Kabel, eins mit einem Widerstand von \SI{50}{\ohm} und das Andere mit einem Widerstand von \SI{75}{\ohm}, in Reihe geschaltet. Die entstehenden Mehrfachreflexionen werden vermessen.
+\fig{bilder/aufbau.pdf}{Schmematische Darstellung zur Messung dees Spannungsverlaufes \cite{anleitung52}.}{aufbau}[width=0.6\textwidth]

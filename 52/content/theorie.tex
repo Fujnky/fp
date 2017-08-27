@@ -1,5 +1,49 @@
 \section{Ziel}
 \label{sec:Ziel}
+Ziel dieses Versuchs ist es, die Leitungskonstanten $R$, $L$, $C$ und $G$ sowie den Dämpfungbelag $\alpha$ für unterschiedliche Koaxialkabel zu ermitteln. Außerdem soll evaluiert werden, wie sich Pulse entlang der Leitung ausbreiten. Zuletzt wird der Einfluss eubes reellen und eines komplexen Abschluss der Leitung untersucht.
 
 \section{Theorie}
 \label{sec:theorie}
+\subsection{Verlustfreie und verlustbehaftete Leitung}
+Wird eine Leitung als verlustfrei angenommen, kann diese durch eine Parallelschaltung von Spule und Kondensator dargstellt werden. Allerdings gilt diese Annahme für reale Leiter nicht. Hier wird das Signal durch Widerstand und dielektrische Verluste im Isolator gedämpft. Daher enthält das Ersatzschaltbild einer verlustbehafteten Leitung zusätzlich den Widerstand $R$ und die Querleitfähigkeit $G$, welche die Verluste im Isolator beschreibt. Eine graphische Darstellung der Schaltbilder ist in \autoref{fig:schaltbilder} zu sehen.
+\fig{bilder/schaltung.pdf}{Ersatzschaltbild einer verlustfreien Leitung (a) und einer verlustbehafteten Leitung (b) \cite{anleitung52}.}{schaltbilder}[width=0.8\textwidth]
+
+\subsection{Telegraphengleichung}
+Die Ausbreitung von Strom und Spannung in verlustbehafteten Leitungen kann mit der Telegraphengleichung beschrieben werden. Sie lautet
+\begin{equation}
+  \frac{\partial^2 U}{\partial t^2} = L\,C\frac{\partial^2 U}{\partial t^2}+(L\,G + R\,C)\frac{\partial U}{\partial t}+R\,G\,U.
+\end{equation}
+Es handelt sich um eine allgemeine Wellengleichung, deren Lösungen gedämpfte harmonische Wellen für Strom und Spannung am Ort $z$ der Leitung sind. Sie haben folgende Form
+\begin{equation}
+  U(z,t)=U\,e^{-\gamma z}\,e^{i\omega t}.
+\end{equation}
+Hier bezeichnet $\gamma$ die Ausbreitungskonstante und $t$ die Zeit. Die Ausbreitungskonstante setzt sich aus dem Dämpfungsbelag $\alpha$ und dem Phasenbelag $\beta$ zusammen
+\begin{equation}
+  \gamma =\alpha+i\beta=\sqrt{(R+J\omega L)(G+j\omega C)}.
+\end{equation}
+Wenn eine verlustbehaftete Leitung vorliegt, kommt es wegen Dispersion zu einer Verzerrung des Signals, welche unter anderem vom Wellenwiderstand $Z_0$ des Kabels abhängt. Für ein sinusförmiges Signal der Frequenz $\omega$ ist dieser wie folgt definiert
+\begin{equation}
+  Z_0=\frac{U(\omega)}{I(\omega)}=\sqrt{\frac{R+j\omega L}{G+j\omega C}}.
+\end{equation}
+
+\subsection{Signalübertragung}
+Um die Störstellen den entsprechenden Spannungsänderungen zuzuornden, wird ein Impulsfahrplan erstellt. Dies ist insbesondere dann sinnvoll, wenn mehrere Störstellen vorliegen. In \autoref{fig:impuls} ist ein Impulsfahrplan für einen Rechteckpuls der Amplitude $U_0$ auf einer Leitung der Länge $l$ mit einem ohmschen Widerstand als Abschluss dargestellt.
+\fig{bilder/impuls.pdf}{Impulsfahrplan einer Leitung der Länge $l$ mit ohmschem Widerstand abgeschlossen \cite{anleitung52}.}{impuls}[width=0.3\textwidth]
+\fig{bilder/signal.pdf}{Spannungsverlauf am Ort $z$ einer Leitung in Abhängigkeit von der Zeit mit ohmschem Widerstand abgeschlossen \cite{anleitung52}.}{spannung}[width=0.8\textwidth]
+Trifft dieser Puls nach der Zeit $T$ auf das Leitungsende, wird er dort reflektiert und besitzt nun die Amplitude
+\begin{equation}
+  U_a=\Gamma_a \cdot \Gamma_e \cdot U_0,
+\end{equation}
+wobei $\Gamma_a$ der Reflexionskoeffizient am Anfang und $\Gamma_e$ der Reflexionskoeffizient m Ende der Leitung ist. Der reflektierte Puls erreicht nach der Zeit $2T$ erneut den Anfang der Leitung, wo eine Reflexion mit der Amplitude $=\Gamma_a \cdot \Gamma_e \cdot U_0$ erfolgt. Die Amplitude nach n-facher Reflexion lässt sich durch die geometrische Reihe beschreiben, welche den Grenzwert
+\begin{equation}
+  U_e=U_=\left(\frac{1+\Gamma}{1-\Gamma_a \Gamma_e}\right)
+\end{equation}
+besitzt.\\
+Aus dem erstelllten Impulsfahrplan lässt sich der Spannungverlauf an einem Ort $z$ der Leitung ermittlen. Dieser ist in \autoref{fig:spannung} zu finden. Zum Zeitpunkt $t_1$ wird der Puls erstmals am Ort $z$ beobachtet. Nach der Reflexion am Leitungsende erreicht der Puls zum Zeitpunkt $t_2$ erneut den Messpunkt und besitzt nun die Amplitude $U-0 +\Gamma_L U_0$. Dann wird er erneut am Leitungsanfang reflektiert. Dieser Vorgang wiederholt sich, bis eine Grenzamplitude $U_e$ vorliegt.
+
+\subsection{Koaxialkabel}
+Ein Koaxialkabel setzt sich aus einem kleinen zylinderförmigen Leiter des Durchmessers $d$ und eines sich darum befindenden größeren Leiter des Durchmessers $D$. Die beiden Leiter werden durch ein Dielektrikum voneinander getrennt. Das Verhältnis der beiden Durchmesser beinflusst sowohl den Wellenwiderstand als auch das Dämpfungsverhalten. Der Widerstand $R$ und der querleitwert $G$ weisen für hohe Frequenzen eine Frequenzabhängigkeit auf, da durch den Wechselstrom ein sich periodisch änderndes Magnetfeld im Leiterinneren entsteht, welches Wirbelströme induziert. Diese Wirbelströme beeinflussen den Widerstand, sodass dieser ab Frequenzen von etwa \SI{100}{\kilo\hertz} proportional zu $\sqrt{\omega}$ ist. Dieser Effekt wird als Skin-Effekt bezeichnet.
+
+\subsection{Smith-Diagramm}
+Bei der Darstellung eines Smith-Diagramms erfolgt eine Transformation der Impedanzen von der Impuls- in die Reflexionsebene. Durch eine Möbius-Transformation erfolgt ein Übergang der Linien in kartesischen Koordinaten in Kreise. In \autoref{fig:smith} ist ein Beispiel eines Smith-Diagramms dargestellt. Auf der horizontalen Linie durch die Mitte des Kreises werden die verschiedenenn Reflexionsfaktoren beziehungsweise Abschlusswiderstände eingetragen. So befindet sich am linken Rand des Kreises das geschlossene Ende mit $Z=0$, was einem Reflexionsfaktor von $\Gamma=-1$ entspricht. Im Mittelpunkt des Kreises ist der Abschlusswiderstand genau dem Wellenwiderstand des Kabels ($Z=Z_0$) mit einem Reflexionsfaktor von $\Gamma=0$. Am rechten Rand des Kreises ist der Abschlusswiderstand $Z=\infty$  für ein offenes Ende mit einem Reflexionsfaktor von $\Gamma=1$ eingetragen. Wird die Impedanz auf den Wellenwiderstand $Z_0$ normiert und im Diagramm eingetragen, kann beispielsweise die Phase des Reflexionsfaktors ermittelt werden. Positive Werte der Phase werden im Uhrzeigersinn eingezeichnet.
+\fig{bilder/smith.pdf}{Smith-Diagramm in Impedanzdarstellung \cite{anleitung52}.}{smith}[width=0.6\textwidth]
