@@ -32,4 +32,5 @@ plt.plot(x1,y1, 'C0-')
 plt.plot(x2,y2, 'C0-')
 plt.plot(x3,y3, 'C0--')
 
-plt.savefig('impuls.pdf')
+plt.tight_layout(pad=0)
+plt.savefig('build/impuls.pdf')

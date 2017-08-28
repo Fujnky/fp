@@ -1,2 +1,76 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Leitungskonstanten}
+Die mit dem RLC-Messgerät ermittelten Werte finden sich in \autoref{tab:rlcg}. Der Querleitfähigkeit berechnet sich über
+\begin{align}
+  G = \frac{RC}{L}.
+\end{align}
+In \autoref{fig:rlcg} sind alle Größen über $\omega$ aufgetragen.
+\input{build/rlcg.tex}
+\fig{build/rlcg.pdf}{Gemessene Leitungsparameter in Abhängigkeit von $\omega$.}{rlcg}
+
+\subsection{Dämpfungskonstante}
+In \autoref{fig:alpha} findet sich eine Darstellung der fouriertransformierten Signale des kurzen und langen Kabels. Die Differenzen der Peak-Pegel stellen die jeweilige Dämpfungskonstante bei dieser Frequenz dar. Ergebnisse finden sich in \autoref{tab:alpha}, gemittelt ergeben diese
+\begin{align}
+  \langle \alpha \rangle &= \SI{4.5+-6}{\decibel}.
+\end{align}
+\input{build/alpha.tex}
+\fig{build/alpha.pdf}{Darstellung der fouriertransformierten Signale.}{alpha}
+
+\subsection{Leitungslänge und Konstanten}
+In den Abbildungen \ref{fig:lk}--\ref{fig:m2o} finden sich die Signalverläufe der verschiedenen kurzgeschlossenen und offenen Kabel. Nur beim langen Kabel kann ein sinnvoller fit an die Funktion
+\begin{align}
+  U(t) &= a \symup{e}^{b\cdot t -c} +d
+\end{align}
+durchgeführt werden. Es ergaben sich kurzgeschlossen und offen:
+\begin{align}
+  a_1 &= \SI{-2.170}{\volt} & b_1 &= \SI{-1.253e7}{\per\second}& c_1 &= \num{-2.821} & d_1 &= \SI{5.431}{\volt} \\
+  a_2 &= \SI{25.91}{\volt} & b_2 &= \SI{-1.534e7}{\per\second}& c_2 &= \num{-13.62} & d_2 &= \SI{6.063}{\volt}
+\end{align}
+Daraus kann dann über
+\begin{align}
+    C &= -\frac1{Z_0 \cdot b} \\
+    L &= -\frac{Z_0}{b}
+\end{align}
+auf die Leitungsparameter
+\begin{align}
+  C_\mathrm{lang} &= \SI{1.597}{\nano\farad} \\
+  L_\mathrm{lang} &= \SI{3.260}{\micro\henry}
+\end{align}
+geschlossen werden. Anhand der eingezeichneten Laufzeiten
+\begin{align}
+  t_\mathrm{lang} &= \SI{860}{ns} & t_{\SI{50}{\ohm}} &= \SI{100}{ns} & t_{\SI{75}{\ohm}} &= \SI{100}{ns}
+\end{align} wird über
+\begin{align}
+    l &= \frac{c_0 \cdot t}{2\varepsilon_r}
+\intertext{mit}
+    \varepsilon_r &= \num{2.25}
+\end{align}
+auf die Leitungslängen
+\begin{align}
+  l_\mathrm{lang} &= \SI{85.94}{m} & l_{\SI{50}{\ohm}} &= \SI{9.993}{m} & l_{\SI{75}{\ohm}} &= \SI{9.993}{m}
+\end{align}
+geschlossen.
+
+
+\fig{build/langes_kabel_kurzgeschlossen.pdf}{Signalverlauf des langen, kurzgeschlossenen Kabels.}{lk}
+\fig{build/langes_kabel_offen.pdf}{Signalverlauf des langen, offenen Kabels.}{lo}
+\fig{build/mittleres_50ohm_kurzgeschlossen.pdf}{Signalverlauf des mittleren, kurzgeschlossenen \SI{50}{\ohm}-Kabels.}{m1k}
+\fig{build/mittleres_50ohm_offen.pdf}{Signalverlauf des mittleren, offenen \SI{50}{\ohm}-Kabels.}{m1o}
+\fig{build/mittleres_75ohm_kurzgeschlossen.pdf}{Signalverlauf des mittleren, kurzgeschlossenen \SI{75}{\ohm}-Kabels.}{m2k}
+\fig{build/mittleres_75ohm_offen.pdf}{Signalverlauf des mittleren, offenen \SI{75}{\ohm}-Kabels.}{m2o}
+
+\subsection{Unbekannte Bauteile}
+In den Abbildungen \ref{fig:bl}--\ref{fig:ba} sind die Signalformen der unbekannten Bauelemente aufgetragen. Der jeweiligen Bildunterschrift ist das daraus abgeleitete Bauteil zu entnehmen.
+\fig{build/bauteil3.5.pdf}{Spannungsverlauf von Kästchen 3.5, einer Induktivität.}{bl}
+\fig{build/bauteil3.7.pdf}{Spannungsverlauf von Kästchen 3.7, einem \SI{50}{\ohm}-Widerstand.}{bc}
+\fig{build/bauteil3.10.pdf}{Spannungsverlauf von Kästchen 3.10, einem Kondensator.}{ba}
+
+
+\subsection{Mehrfachreflexion}
+In \autoref{fig:mehrfach} findet sich der gemessene Spannungsverlauf, inklusive dem aus dem Impulsfahrplan (Abb.~\ref{fig:fapla}) konstruierten Spannungsverlauf.
+\fig{build/mehrfach1.pdf}{Spannungsverlauf bei zwei zusammengeschlossenen Kabeln mit unterschiedlichem Wellenwiderstand.}{mehrfach}
+\fig{build/impuls.pdf}{Impulsfahrplan des Versuchsaufbaus.}{fapla}
+%\begin{align}
+%  \Gamma_1 &= \num{0.078} & \Gamma_2 &= \num{1.2} & \Gamma_3 &= \num{0.875}
+%\end{align}

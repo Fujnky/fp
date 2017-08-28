@@ -105,8 +105,8 @@ def format_row(row, reformat_list, is_uncertain_list):
                 row_reformatted.append("{:.2e}".format(s))
         else:
             if number == 0:
-                number = "0"
-            if not reformat:
+                row_reformatted.append("0")
+            elif not reformat:
                 row_reformatted.append("{:.20f}".format(number))
             else:
                 row_reformatted.append("{:.2e}".format(number))

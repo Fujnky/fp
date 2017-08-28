@@ -14,8 +14,23 @@ all: build/main.pdf
 build/alpha.pdf: auswertung/alpha.py | build
 	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/alpha.py
 
+build/rlcg.pdf build/rlcg.tex: auswertung/rlcg.py | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/rlcg.py
+
+build/langes_kabel_kurzgeschlossen.pdf: auswertung/laufzeit.py | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/laufzeit.py
+
+build/bauteil3.5.pdf: auswertung/bauteile.py | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/bauteile.py
+
+build/mehrfach1.pdf: auswertung/mehrfach.py | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/mehrfach.py
+
+build/impuls.pdf: auswertung/impuls.py | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/impuls.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-#build/main.pdf: build/magn-moment.pdf
+build/main.pdf: build/alpha.pdf build/rlcg.tex build/rlcg.pdf build/langes_kabel_kurzgeschlossen.pdf build/bauteil3.5.pdf build/mehrfach1.pdf build/impuls.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
