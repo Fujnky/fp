@@ -27,6 +27,8 @@ def plot(name):
 plot('1')
 
 print('reflexionsfaktoren')
-print(5/64)
-print(6/5)
-print(56/64)
+
+Gs = 5/64
+Ga = 6/(64 * Gs)
+Ge = (56/64 - Gs**2 * Ga) / (1 - Gs)**2
+print(Gs, Ga, Ge)

@@ -118,10 +118,11 @@ def get_format_string(set, precision):
     set[set == 0] = 1
     mag = np.ceil(np.log10(np.absolute(set))).astype(int)
 
-    if mag.max() > max_magnitude or mag.min() < min_magnitude:
+    #Zu große, zu kleine Zahlen mit Exponent darstellen, ebenso bei zu großer Spreizung im Datensatz
+    if mag.max() > max_magnitude or mag.min() < min_magnitude or mag.max() - mag.min() > 3:
         reformat = True
         string = "{}.{}".format(1, precision-1)
-        string += "e{}".format(np.ceil(np.log10(abs(mag).max())).astype(int) + (1 if mag[abs(mag).argmax()] < 0 else 0))
+        string += "e{}".format(np.ceil(np.log10(abs(mag).max())).astype(int) + (1 if mag.min() < 0 else 0))
     else:
         reformat = False
         pre = mag.max()

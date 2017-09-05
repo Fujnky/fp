@@ -1,6 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 \subsection{Leitungskonstanten}
+\label{sec:konstanten}
 Die mit dem RLC-Messgerät ermittelten Werte finden sich in \autoref{tab:rlcg}. Der Querleitfähigkeit berechnet sich über
 \begin{align}
   G = \frac{RC}{L}.
@@ -18,26 +19,18 @@ In \autoref{fig:alpha} findet sich eine Darstellung der fouriertransformierten S
 \fig{build/alpha.pdf}{Darstellung der fouriertransformierten Signale.}{alpha}
 
 \subsection{Leitungslänge und Konstanten}
-In den Abbildungen \ref{fig:lk}--\ref{fig:m2o} finden sich die Signalverläufe der verschiedenen kurzgeschlossenen und offenen Kabel. Nur beim langen Kabel kann ein sinnvoller fit an die Funktion
+\label{sec:everybodyhatessmithcharts}
+In den Abbildungen \ref{fig:lk}--\ref{fig:m2o} finden sich die Signalverläufe der verschiedenen kurzgeschlossenen und offenen Kabel. Es kann ein Fit an die Funktion
 \begin{align}
   U(t) &= a \symup{e}^{b\cdot t -c} +d
 \end{align}
-durchgeführt werden. Es ergaben sich kurzgeschlossen und offen:
-\begin{align}
-  a_1 &= \SI{-2.170}{\volt} & b_1 &= \SI{-1.253e7}{\per\second}& c_1 &= \num{-2.821} & d_1 &= \SI{5.431}{\volt} \\
-  a_2 &= \SI{25.91}{\volt} & b_2 &= \SI{-1.534e7}{\per\second}& c_2 &= \num{-13.62} & d_2 &= \SI{6.063}{\volt}
-\end{align}
+durchgeführt werden. Es ergaben sich kurzgeschlossen und offen die in \autoref{tab:laufzeit} angegebenen Fitparameter.
 Daraus kann dann über
 \begin{align}
     C &= -\frac1{Z_0 \cdot b} \\
     L &= -\frac{Z_0}{b}
 \end{align}
-auf die Leitungsparameter
-\begin{align}
-  C_\mathrm{lang} &= \SI{1.597}{\nano\farad} \\
-  L_\mathrm{lang} &= \SI{3.260}{\micro\henry}
-\end{align}
-geschlossen werden. Anhand der eingezeichneten Laufzeiten
+auf die Leitungsparameter in \autoref{tab:laufzeit2} geschlossen werden. Anhand der eingezeichneten Laufzeiten
 \begin{align}
   t_\mathrm{lang} &= \SI{860}{ns} & t_{\SI{50}{\ohm}} &= \SI{100}{ns} & t_{\SI{75}{\ohm}} &= \SI{100}{ns}
 \end{align} wird über
@@ -51,6 +44,13 @@ auf die Leitungslängen
   l_\mathrm{lang} &= \SI{85.94}{m} & l_{\SI{50}{\ohm}} &= \SI{9.993}{m} & l_{\SI{75}{\ohm}} &= \SI{9.993}{m}
 \end{align}
 geschlossen.
+In einem Smith-Diagramm kann die Leitungslänge insofern ermittelt werden, als dass die Leitungsimpedanz und der Abschlusswiderstand eingetragen werden und der Winkel $\phi$, gemessen vom Mittelpunkt des Diagramms, bestimmt wird. Dann lässt sich über
+\begin{align}
+  \label{eq:wurst}
+  \phi = 2 \cdot \frac{2\pi}{\lambda} l
+\end{align}
+die Länge $l$ bestimmen. Wird die Impedanz aus den Daten aus Abschnitt~\ref{sec:konstanten} über \eqref{eq:Z} bestimmt ergeben sich die Smith-Diagramme \ref{fig:s50} und \ref{fig:s75}. Dort kann kein Winkel sinnvoll abgelesen werden, also ist eine Ermittlung der Leitungslänge nicht möglich. Beim Einsetzen der tatsächlichen Leitungslänge (\SI{10}{m}) in \eqref{eq:wurst} ergibt sich in Abhängigkeit von der Frequenz ein Winkel zwischen \SI{0.07}{\degree} und \SI{3.6}{\degree}, was erklärt warum nichts bestimmbar ist.
+
 
 
 \fig{build/langes_kabel_kurzgeschlossen.pdf}{Signalverlauf des langen, kurzgeschlossenen Kabels.}{lk}
@@ -59,18 +59,30 @@ geschlossen.
 \fig{build/mittleres_50ohm_offen.pdf}{Signalverlauf des mittleren, offenen \SI{50}{\ohm}-Kabels.}{m1o}
 \fig{build/mittleres_75ohm_kurzgeschlossen.pdf}{Signalverlauf des mittleren, kurzgeschlossenen \SI{75}{\ohm}-Kabels.}{m2k}
 \fig{build/mittleres_75ohm_offen.pdf}{Signalverlauf des mittleren, offenen \SI{75}{\ohm}-Kabels.}{m2o}
+\fig{build/50_smith.pdf}{Smith-Diagramm des \SI{50}{\ohm}-Kabels.}{s50}
+\fig{build/75_smith.pdf}{Smith-Diagramm des \SI{75}{\ohm}-Kabels.}{s75}
+
+\input{build/laufzeit.tex}
+\input{build/laufzeit2.tex}
 
 \subsection{Unbekannte Bauteile}
-In den Abbildungen \ref{fig:bl}--\ref{fig:ba} sind die Signalformen der unbekannten Bauelemente aufgetragen. Der jeweiligen Bildunterschrift ist das daraus abgeleitete Bauteil zu entnehmen.
+In den Abbildungen \ref{fig:bl}--\ref{fig:ba} sind die Signalformen der unbekannten Bauelemente aufgetragen. Der jeweiligen Bildunterschrift ist das daraus abgeleitete Bauteil zu entnehmen, worauf aufgrund des charakteristischen Verlaufs (in der Anleitung angegeben) des jeweiligen Bauteils geschlossen werden kann. Ganz analog zu Abschnitt~\ref{sec:everybodyhatessmithcharts} kann daraufhin mit einem exponentiellen Fit der jeweils interessante Bauteilparameter bestimmt werden. Es folgt für die Induktivität
+\begin{align}
+  L &= \SI{90.8}{\micro\henry} \\
+  \intertext{und für den Kondensator}
+  C &= \SI{117.9}{\nano\farad}.
+\end{align}
 \fig{build/bauteil3.5.pdf}{Spannungsverlauf von Kästchen 3.5, einer Induktivität.}{bl}
 \fig{build/bauteil3.7.pdf}{Spannungsverlauf von Kästchen 3.7, einem \SI{50}{\ohm}-Widerstand.}{bc}
 \fig{build/bauteil3.10.pdf}{Spannungsverlauf von Kästchen 3.10, einem Kondensator.}{ba}
 
-
+\FloatBarrier
 \subsection{Mehrfachreflexion}
-In \autoref{fig:mehrfach} findet sich der gemessene Spannungsverlauf, inklusive dem aus dem Impulsfahrplan (Abb.~\ref{fig:fapla}) konstruierten Spannungsverlauf.
+In \autoref{fig:mehrfach} findet sich der gemessene Spannungsverlauf, inklusive dem aus dem Impulsfahrplan (Abb.~\ref{fig:fapla}) konstruierten Spannungsverlauf. Aus dem Impulsfahrplan ergeben sich die Reflexionsfaktoren
 \fig{build/mehrfach1.pdf}{Spannungsverlauf bei zwei zusammengeschlossenen Kabeln mit unterschiedlichem Wellenwiderstand.}{mehrfach}
 \fig{build/impuls.pdf}{Impulsfahrplan des Versuchsaufbaus.}{fapla}
-%\begin{align}
-%  \Gamma_1 &= \num{0.078} & \Gamma_2 &= \num{1.2} & \Gamma_3 &= \num{0.875}
-%\end{align}
+\begin{align}
+  \Gamma_\mathrm s &= U_1 / U_0 =\num{0.078}, \\
+  \Gamma_\mathrm a &= \frac{U_2}{U_ß \Gamma_\mathrm s} =\num{1.2}, \\
+  \Gamma_\mathrm e &= \frac{\frac{U_3}{U_0} - \Gamma_\mathrm s ^2 \Gamma_\mathrm a}{(1-\Gamma_\mathrm s)^2} = \num{1.021}.
+\end{align}

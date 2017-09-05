@@ -5,13 +5,13 @@ Ziel dieses Versuchs ist es, die Leitungskonstanten $R$, $L$, $C$ und $G$ sowie 
 \section{Theorie}
 \label{sec:theorie}
 \subsection{Verlustfreie und verlustbehaftete Leitung}
-Wird eine Leitung als verlustfrei angenommen, kann diese durch eine Parallelschaltung von Spule und Kondensator dargestellt werden. Allerdings gilt diese Annahme für reale Leiter nicht. Hier wird das Signal durch Widerstand und dielektrische Verluste im Isolator gedämpft. Daher enthält das Ersatzschaltbild einer verlustbehafteten Leitung zusätzlich den Widerstand $R$ und die Querleitfähigkeit $G$, welche die Verluste im Isolator beschreibt. Eine graphische Darstellung der Schaltbilder ist in \autoref{fig:schaltbilder} zu sehen.
+Wird eine Leitung als verlustfrei angenommen, kann diese durch eine Parallelschaltung von Spule und Kondensator dargestellt werden. Allerdings gilt diese Annahme für reale Leiter nicht. Hier wird das Signal durch ohmschen Widerstand und dielektrische Verluste im Isolator gedämpft. Daher enthält das Ersatzschaltbild einer verlustbehafteten Leitung zusätzlich den Widerstand $R$ und die Querleitfähigkeit $G$, welche die Verluste im Isolator beschreibt. Eine graphische Darstellung der Schaltbilder ist in \autoref{fig:schaltbilder} zu sehen.
 \fig{bilder/schaltung.pdf}{Ersatzschaltbild einer verlustfreien Leitung (a) und einer verlustbehafteten Leitung (b) \cite{anleitung52}.}{schaltbilder}[width=0.8\textwidth]
 
 \subsection{Telegraphengleichung}
 Die Ausbreitung von Strom und Spannung in verlustbehafteten Leitungen kann mit der Telegraphengleichung beschrieben werden. Sie lautet
 \begin{equation}
-  \frac{\partial^2 U}{\partial t^2} = L\,C\frac{\partial^2 U}{\partial t^2}+(L\,G + R\,C)\frac{\partial U}{\partial t}+R\,G\,U.
+  \frac{\partial^2 U}{\partial z^2} = L\,C\frac{\partial^2 U}{\partial t^2}+(L\,G + R\,C)\frac{\partial U}{\partial t}+R\,G\,U.
 \end{equation}
 Es handelt sich um eine allgemeine Wellengleichung, deren Lösungen gedämpfte harmonische Wellen für Strom und Spannung am Ort $z$ der Leitung sind. Sie haben folgende Form
 \begin{equation}
@@ -23,6 +23,7 @@ Hier bezeichnet $\gamma$ die Ausbreitungskonstante und $t$ die Zeit. Die Ausbrei
 \end{equation}
 Wenn eine verlustbehaftete Leitung vorliegt, kommt es wegen Dispersion zu einer Verzerrung des Signals, welche unter anderem vom Wellenwiderstand $Z_0$ des Kabels abhängt. Für ein sinusförmiges Signal der Frequenz $\omega$ ist dieser wie folgt definiert
 \begin{equation}
+  \label{eq:Z}
   Z_0=\frac{U(\omega)}{I(\omega)}=\sqrt{\frac{R+j\omega L}{G+j\omega C}}.
 \end{equation}
 
