@@ -31,9 +31,8 @@ def smith(R, L, C, G, name):
     Z = np.sqrt((R + 1j*ω*L)/(G + 1j*ω*C))
     beta = 2 * np.pi / (c/f)
     phi = 2 * beta * 10
-    print(np.rad2deg(phi))
+    #print(np.rad2deg(phi))
     plt.plot(Z, datatype=SmithAxes.Z_PARAMETER, label=r'$Z_\mathrm{Leitung}', markersize=3)
-    #plt.plot((1e100+X*1j)/50, datatype=SmithAxes.Z_PARAMETER, label='Muh')
 
     plt.legend(loc='best')
     plt.tight_layout(pad=0)
