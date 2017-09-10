@@ -12,22 +12,22 @@ all: build/main.pdf
 
 # hier Python-Skripte:
 build/alpha.pdf: auswertung/alpha.py | build
-	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/alpha.py
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/alpha.py
 
 build/rlcg.pdf build/rlcg.tex: auswertung/rlcg.py | build
-	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/rlcg.py
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/rlcg.py
 
 build/langes_kabel_kurzgeschlossen.pdf: auswertung/laufzeit.py | build
-	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/laufzeit.py
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/laufzeit.py
 
 build/bauteil3.5.pdf: auswertung/bauteile.py | build
-	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/bauteile.py
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/bauteile.py
 
 build/mehrfach1.pdf: auswertung/mehrfach.py | build
-	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/mehrfach.py
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/mehrfach.py
 
 build/impuls.pdf: auswertung/impuls.py | build
-	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/impuls.py
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python3 auswertung/impuls.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/alpha.pdf build/rlcg.tex build/rlcg.pdf build/langes_kabel_kurzgeschlossen.pdf build/bauteil3.5.pdf build/mehrfach1.pdf build/impuls.pdf
